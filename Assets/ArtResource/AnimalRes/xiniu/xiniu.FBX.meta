@@ -1,0 +1,624 @@
+fileFormatVersion: 2
+guid: 63e90a00c92744d4492479874d246742
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone004
+    100004: Bone005
+    100006: Bone006
+    100008: Bone007
+    100010: Bone009
+    100012: Bone010
+    100014: Bone011
+    100016: Bone011(mirrored)
+    100018: Bone012
+    100020: Bone012(mirrored)
+    100022: Bone013
+    100024: Bone013(mirrored)
+    100026: Bone014
+    100028: Bone014(mirrored)
+    100030: Bone017
+    100032: Bone017 1
+    100034: Bone017(mirrored)
+    100036: Bone018
+    100038: Bone019
+    100040: Bone020
+    100042: Bone021
+    100044: Bone022
+    100046: horn
+    100048: Plane005
+    100050: RhinoCuerpoLOW
+    100052: right_eye
+    100054: //RootNode
+    400000: Bone001
+    400002: Bone004
+    400004: Bone005
+    400006: Bone006
+    400008: Bone007
+    400010: Bone009
+    400012: Bone010
+    400014: Bone011
+    400016: Bone011(mirrored)
+    400018: Bone012
+    400020: Bone012(mirrored)
+    400022: Bone013
+    400024: Bone013(mirrored)
+    400026: Bone014
+    400028: Bone014(mirrored)
+    400030: Bone017
+    400032: Bone017 1
+    400034: Bone017(mirrored)
+    400036: Bone018
+    400038: Bone019
+    400040: Bone020
+    400042: Bone021
+    400044: Bone022
+    400046: horn
+    400048: Plane005
+    400050: RhinoCuerpoLOW
+    400052: right_eye
+    400054: //RootNode
+    2300000: Plane005
+    3300000: Plane005
+    4300000: Plane005
+    4300002: RhinoCuerpoLOW
+    4300004: horn
+    4300006: right_eye
+    7400000: Take 001
+    7400002: Take 0010
+    7400004: Take 0011
+    7400006: Take 0012
+    7400008: Take 0013
+    7400010: Take 0014
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: horn
+    13700002: RhinoCuerpoLOW
+    13700004: right_eye
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 22
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone004
+        weight: 1
+      - path: Bone001/Bone004/Bone005
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone001/Bone009
+        weight: 1
+      - path: Bone001/Bone009/Bone010
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1/Bone022
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)/Bone021
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone018
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone019
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone020
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Plane005
+        weight: 1
+      - path: Bone001/Bone011
+        weight: 1
+      - path: Bone001/Bone011/Bone012
+        weight: 1
+      - path: Bone001/Bone011(mirrored)
+        weight: 1
+      - path: Bone001/Bone011(mirrored)/Bone012(mirrored)
+        weight: 1
+      - path: Bone001/Bone013
+        weight: 1
+      - path: Bone001/Bone013/Bone014
+        weight: 1
+      - path: Bone001/Bone013(mirrored)
+        weight: 1
+      - path: Bone001/Bone013(mirrored)/Bone014(mirrored)
+        weight: 1
+      - path: horn
+        weight: 1
+      - path: RhinoCuerpoLOW
+        weight: 1
+      - path: right_eye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Take 0010
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 50
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone004
+        weight: 1
+      - path: Bone001/Bone004/Bone005
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone001/Bone009
+        weight: 1
+      - path: Bone001/Bone009/Bone010
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1/Bone022
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)/Bone021
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone018
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone019
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone020
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Plane005
+        weight: 1
+      - path: Bone001/Bone011
+        weight: 1
+      - path: Bone001/Bone011/Bone012
+        weight: 1
+      - path: Bone001/Bone011(mirrored)
+        weight: 1
+      - path: Bone001/Bone011(mirrored)/Bone012(mirrored)
+        weight: 1
+      - path: Bone001/Bone013
+        weight: 1
+      - path: Bone001/Bone013/Bone014
+        weight: 1
+      - path: Bone001/Bone013(mirrored)
+        weight: 1
+      - path: Bone001/Bone013(mirrored)/Bone014(mirrored)
+        weight: 1
+      - path: horn
+        weight: 1
+      - path: RhinoCuerpoLOW
+        weight: 1
+      - path: right_eye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Take 0011
+      takeName: Take 001
+      firstFrame: 55
+      lastFrame: 72
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone004
+        weight: 1
+      - path: Bone001/Bone004/Bone005
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone001/Bone009
+        weight: 1
+      - path: Bone001/Bone009/Bone010
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1/Bone022
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)/Bone021
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone018
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone019
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone020
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Plane005
+        weight: 1
+      - path: Bone001/Bone011
+        weight: 1
+      - path: Bone001/Bone011/Bone012
+        weight: 1
+      - path: Bone001/Bone011(mirrored)
+        weight: 1
+      - path: Bone001/Bone011(mirrored)/Bone012(mirrored)
+        weight: 1
+      - path: Bone001/Bone013
+        weight: 1
+      - path: Bone001/Bone013/Bone014
+        weight: 1
+      - path: Bone001/Bone013(mirrored)
+        weight: 1
+      - path: Bone001/Bone013(mirrored)/Bone014(mirrored)
+        weight: 1
+      - path: horn
+        weight: 1
+      - path: RhinoCuerpoLOW
+        weight: 1
+      - path: right_eye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Take 0012
+      takeName: Take 001
+      firstFrame: 75
+      lastFrame: 99
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone004
+        weight: 1
+      - path: Bone001/Bone004/Bone005
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone001/Bone009
+        weight: 1
+      - path: Bone001/Bone009/Bone010
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1/Bone022
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)/Bone021
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone018
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone019
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone020
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Plane005
+        weight: 1
+      - path: Bone001/Bone011
+        weight: 1
+      - path: Bone001/Bone011/Bone012
+        weight: 1
+      - path: Bone001/Bone011(mirrored)
+        weight: 1
+      - path: Bone001/Bone011(mirrored)/Bone012(mirrored)
+        weight: 1
+      - path: Bone001/Bone013
+        weight: 1
+      - path: Bone001/Bone013/Bone014
+        weight: 1
+      - path: Bone001/Bone013(mirrored)
+        weight: 1
+      - path: Bone001/Bone013(mirrored)/Bone014(mirrored)
+        weight: 1
+      - path: horn
+        weight: 1
+      - path: RhinoCuerpoLOW
+        weight: 1
+      - path: right_eye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Take 0013
+      takeName: Take 001
+      firstFrame: 105
+      lastFrame: 135
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone004
+        weight: 1
+      - path: Bone001/Bone004/Bone005
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone001/Bone009
+        weight: 1
+      - path: Bone001/Bone009/Bone010
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1/Bone022
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)/Bone021
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone018
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone019
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone020
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Plane005
+        weight: 1
+      - path: Bone001/Bone011
+        weight: 1
+      - path: Bone001/Bone011/Bone012
+        weight: 1
+      - path: Bone001/Bone011(mirrored)
+        weight: 1
+      - path: Bone001/Bone011(mirrored)/Bone012(mirrored)
+        weight: 1
+      - path: Bone001/Bone013
+        weight: 1
+      - path: Bone001/Bone013/Bone014
+        weight: 1
+      - path: Bone001/Bone013(mirrored)
+        weight: 1
+      - path: Bone001/Bone013(mirrored)/Bone014(mirrored)
+        weight: 1
+      - path: horn
+        weight: 1
+      - path: RhinoCuerpoLOW
+        weight: 1
+      - path: right_eye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Take 0014
+      takeName: Take 001
+      firstFrame: 140
+      lastFrame: 154
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone004
+        weight: 1
+      - path: Bone001/Bone004/Bone005
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone004/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Bone001/Bone009
+        weight: 1
+      - path: Bone001/Bone009/Bone010
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017 1/Bone022
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone017(mirrored)/Bone021
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone018
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone019
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Bone020
+        weight: 1
+      - path: Bone001/Bone009/Bone010/Plane005
+        weight: 1
+      - path: Bone001/Bone011
+        weight: 1
+      - path: Bone001/Bone011/Bone012
+        weight: 1
+      - path: Bone001/Bone011(mirrored)
+        weight: 1
+      - path: Bone001/Bone011(mirrored)/Bone012(mirrored)
+        weight: 1
+      - path: Bone001/Bone013
+        weight: 1
+      - path: Bone001/Bone013/Bone014
+        weight: 1
+      - path: Bone001/Bone013(mirrored)
+        weight: 1
+      - path: Bone001/Bone013(mirrored)/Bone014(mirrored)
+        weight: 1
+      - path: horn
+        weight: 1
+      - path: RhinoCuerpoLOW
+        weight: 1
+      - path: right_eye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
