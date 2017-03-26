@@ -18,14 +18,15 @@ public class SceneManager : MonoBehaviour
             return false;
         for (int i = 0; i < RoadList.Count; i++)
         {
-            if (RoadList[i].TryOnRoad(entity, isTop))
+            if (RoadList[i].TryOnRoad(entity.transform.position, isTop))
             {
                 SeatList[entity.Index].Animal = null;
-                entity.SetState(AnimalState.Run);
+                RoadList[i].OnRoad(entity, isTop);
                 NeedCreate = true;
                 return true;
             }
         }
+        entity.ToSeatDefault();
         return false;
     }
     public void AddToCollectList(AnimalEntity entity)
@@ -52,10 +53,9 @@ public class SceneManager : MonoBehaviour
     }
     public void CeateAnimal()
     {
-        
-        NeedCreate = false;
         if (InCreating)
             return;
+        NeedCreate = false;
         InCreating = true;
         StartCoroutine(CreateAnimalAnsyc("prefab_daxiang"));
     }

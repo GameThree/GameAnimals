@@ -53,15 +53,19 @@ public class AnimalEntity : MonoBehaviour
             //var screenPos = new Vector3(Input.mousePosition.x, -camera.transform.position.y, Input.mousePosition.y);
             Vector3 pos = camera.ScreenToWorldPoint(screenPos);
             //Debug.LogError("wordpos   " +pos);
-            transform.position = new Vector3(-pos.x, 0, -pos.z);
+            transform.position = new Vector3(-pos.x, 0.5f, -pos.z);
         }
         
     }
 
-    void OnMouseUpAsButton()
+    void OnMouseUp()
     {
-       if (!SceneManager.Instance.TrySetToRoad(this, true))
-           transform.localPosition =Vector3.zero;
+        if (curState == AnimalState.Select)
+        {
+            if (!SceneManager.Instance.TrySetToRoad(this, true))
+                transform.localPosition = Vector3.zero;
+        }
+       
     }
 
     public void SetState(AnimalState state)
@@ -88,6 +92,11 @@ public class AnimalEntity : MonoBehaviour
             transform.position = new Vector3(start.x, 0, start.y);
             animation.Play(curState.ToString());
         }
+        else if (curState == AnimalState.Select)
+        {
+            transform.position =transform.position + new Vector3(0, 0.5f, 0);
+            animation.Play(curState.ToString());
+        }
         else
         {
             animation.Play(curState.ToString());
@@ -100,6 +109,16 @@ public class AnimalEntity : MonoBehaviour
         moveDistance += deltaMove;
     }
 
+    public void ToSeatDefault()
+    {
+        transform.localPosition = Vector3.zero;
+    }
+
+    public void SetParent(Transform parent,Vector3 pos)
+    {
+        transform.parent = parent;
+        transform.position = pos;
+    }
     public bool CanDiffSideConnect(float distance,float bodyLength)
     {
         return (distance + moveDistance + bodyLength / 2 + BodyLength / 2) >= ConstValue.RoadLength;

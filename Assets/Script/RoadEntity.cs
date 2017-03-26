@@ -15,24 +15,24 @@ public class RoadEntity : MonoBehaviour
     {
         RoadLength = TopMarkPos - BottomMarkPos;
     }
-    public bool TryOnRoad(AnimalEntity animal, bool isTop)
+    public bool TryOnRoad(Vector3 animalPos, bool isTop)
     {
-        Vector3 animalPos =animal.transform.position;
         Vector3 roadPos =transform.position;
-        if (animalPos.z <= BottomOnRoadPoint && animalPos.x >= roadPos.x - 1 && animalPos.x <= roadPos.x + 1)
-        {
-            OnRoad(animal, isTop);
-            return true;
-        }
-        return false;
+        return animalPos.z <= BottomOnRoadPoint && animalPos.x >= roadPos.x - 1 && animalPos.x <= roadPos.x + 1;
     }
     public void OnRoad(AnimalEntity animal, bool isTop)
     {
         animal.Index = RoadIndex;
+        float zPos =TopMarkPos;
         if (isTop)
             t2bSide.AddAnimal(animal);
         else
+        { 
             b2tSide.AddAnimal(animal);
+            zPos =BottomMarkPos;
+        }
+        animal.SetParent(transform, new Vector3(0, 0, zPos));
+        animal.SetState(AnimalState.Run);
     }
     void Update()
     {
@@ -58,18 +58,7 @@ public class SideInfo
     {
         float normalDeltaMove = deltaTime * ConstValue.DefaultSpeed;
         float connectDeltaMove = deltaTime * SideSpeed;
-        if (SideAnimals.Count > 0)
-        {
-            if (SideAnimals[0].MoveDistance >= roadLength)
-            {
-                var entity = SideAnimals[0];
-                entity.SetState(AnimalState.Finish);
-                SideAnimals.RemoveAt(0);
-                SceneManager.Instance.AddToCollectList(entity);
-                if (SideAnimals.Count>0)
-                SideAnimals[0].SetState(AnimalState.Run);
-            }
-        }
+
         for (int i = 0; i < SideAnimals.Count; i++)
         {
             if (i == 0 && SideAnimals[0].CurState != AnimalState.Connect)
@@ -108,6 +97,23 @@ public class SideInfo
                         SideAnimals[i].SetState(AnimalState.Connect);
                     }
                 }
+            }
+        }
+
+        if (SideAnimals.Count > 0)
+        {
+            if (SideAnimals[0].MoveDistance >= roadLength)
+            {
+                var entity = SideAnimals[0];
+                entity.SetState(AnimalState.Finish);
+                SideAnimals.RemoveAt(0);
+                SceneManager.Instance.AddToCollectList(entity);
+                if (SideAnimals.Count>0)
+                SideAnimals[0].SetState(AnimalState.Run);
+            }
+            if (SideSpeed < 0 && SideAnimals[SideAnimals.Count-1].MoveDistance<=0)
+            {
+                SideAnimals.RemoveAt(SideAnimals.Count - 1);
             }
         }
 
