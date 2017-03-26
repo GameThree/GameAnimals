@@ -53,6 +53,41 @@ ModelImporter:
     100094: right_eye
     100096: right_horn
     100098: right_horn001
+    100100: bizi01
+    100102: bizi02
+    100104: bizi03
+    100106: bizi04
+    100108: er01_L
+    100110: er01_R
+    100112: er02_L
+    100114: er02_R
+    100116: gengu
+    100118: houtui01_L
+    100120: houtui01_R
+    100122: houtui02_L
+    100124: houtui02_R
+    100126: qiantui01_L
+    100128: qiantui01_R
+    100130: qiantui02_L
+    100132: qiantui02_R
+    100134: shenti01
+    100136: shenti02
+    100138: tou
+    100140: touhua01
+    100142: touhua02
+    100144: touhua03
+    100146: touhua04
+    100148: touhua05
+    100150: touhua06
+    100152: touhua07
+    100154: touhua08
+    100156: touhua09
+    100158: touhua10
+    100160: wei01
+    100162: wei02
+    100164: yan_L
+    100166: yan_R
+    100168: zui
     400000: Bone001
     400002: Bone004
     400004: Bone005
@@ -103,6 +138,41 @@ ModelImporter:
     400094: right_eye
     400096: right_horn
     400098: right_horn001
+    400100: bizi01
+    400102: bizi02
+    400104: bizi03
+    400106: bizi04
+    400108: er01_L
+    400110: er01_R
+    400112: er02_L
+    400114: er02_R
+    400116: gengu
+    400118: houtui01_L
+    400120: houtui01_R
+    400122: houtui02_L
+    400124: houtui02_R
+    400126: qiantui01_L
+    400128: qiantui01_R
+    400130: qiantui02_L
+    400132: qiantui02_R
+    400134: shenti01
+    400136: shenti02
+    400138: tou
+    400140: touhua01
+    400142: touhua02
+    400144: touhua03
+    400146: touhua04
+    400148: touhua05
+    400150: touhua06
+    400152: touhua07
+    400154: touhua08
+    400156: touhua09
+    400158: touhua10
+    400160: wei01
+    400162: wei02
+    400164: yan_L
+    400166: yan_R
+    400168: zui
     2300000: left_eye
     2300002: right_eye
     2300004: right_horn
@@ -117,12 +187,12 @@ ModelImporter:
     4300006: right_horn001
     4300008: right_horn
     4300010: Plane009
-    7400000: Take 001
-    7400002: Take 0010
-    7400004: Take 0011
-    7400006: Take 0012
-    7400008: Take 0013
-    7400010: Take 0014
+    7400000: daxiang_zhuangji
+    7400002: daxiang_zhuangjiqianjin
+    7400004: daxiang_run
+    7400006: daxiang_beizhuang
+    7400008: daxiang_yidong
+    7400010: daxiang_fangkai
     9500000: //RootNode
     11100000: //RootNode
     13700000: Plane009
@@ -144,7 +214,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: daxiang_zhuangji
       takeName: Take 001
       firstFrame: 0
       lastFrame: 25
@@ -270,7 +340,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0010
+      name: daxiang_zhuangjiqianjin
       takeName: Take 001
       firstFrame: 30
       lastFrame: 80
@@ -396,7 +466,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0011
+      name: daxiang_run
       takeName: Take 001
       firstFrame: 90
       lastFrame: 115
@@ -522,7 +592,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0012
+      name: daxiang_beizhuang
       takeName: Take 001
       firstFrame: 121
       lastFrame: 145
@@ -648,7 +718,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0013
+      name: daxiang_yidong
       takeName: Take 001
       firstFrame: 151
       lastFrame: 181
@@ -774,7 +844,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0014
+      name: daxiang_fangkai
       takeName: Take 001
       firstFrame: 186
       lastFrame: 200
@@ -920,7 +990,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []

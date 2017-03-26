@@ -31,6 +31,26 @@ ModelImporter:
     100050: RhinoCuerpoLOW
     100052: right_eye
     100054: //RootNode
+    100056: bizi
+    100058: er01_L
+    100060: er01_R
+    100062: gengu
+    100064: houtui01_L
+    100066: houtui01_R
+    100068: houtui02_L
+    100070: houtui02_R
+    100072: qiantui01_L
+    100074: qiantui01_R
+    100076: qiantui02_L
+    100078: qiantui02_R
+    100080: shenti01
+    100082: shenti02
+    100084: tou
+    100086: wei01
+    100088: wei02
+    100090: yan_L
+    100092: yan_R
+    100094: zui
     400000: Bone001
     400002: Bone004
     400004: Bone005
@@ -59,18 +79,38 @@ ModelImporter:
     400050: RhinoCuerpoLOW
     400052: right_eye
     400054: //RootNode
+    400056: bizi
+    400058: er01_L
+    400060: er01_R
+    400062: gengu
+    400064: houtui01_L
+    400066: houtui01_R
+    400068: houtui02_L
+    400070: houtui02_R
+    400072: qiantui01_L
+    400074: qiantui01_R
+    400076: qiantui02_L
+    400078: qiantui02_R
+    400080: shenti01
+    400082: shenti02
+    400084: tou
+    400086: wei01
+    400088: wei02
+    400090: yan_L
+    400092: yan_R
+    400094: zui
     2300000: Plane005
     3300000: Plane005
     4300000: Plane005
     4300002: RhinoCuerpoLOW
     4300004: horn
     4300006: right_eye
-    7400000: Take 001
-    7400002: Take 0010
-    7400004: Take 0011
-    7400006: Take 0012
-    7400008: Take 0013
-    7400010: Take 0014
+    7400000: xiniu_zhuangji
+    7400002: xiniu_zhuangjiqianjin
+    7400004: xiniu_run
+    7400006: xiniu_beizhuang
+    7400008: xiniu_yidong
+    7400010: xiniu_fangkai
     9500000: //RootNode
     11100000: //RootNode
     13700000: horn
@@ -93,7 +133,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: xiniu_zhuangji
       takeName: Take 001
       firstFrame: 0
       lastFrame: 22
@@ -175,7 +215,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0010
+      name: xiniu_zhuangjiqianjin
       takeName: Take 001
       firstFrame: 30
       lastFrame: 50
@@ -257,7 +297,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0011
+      name: xiniu_run
       takeName: Take 001
       firstFrame: 55
       lastFrame: 72
@@ -339,7 +379,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0012
+      name: xiniu_beizhuang
       takeName: Take 001
       firstFrame: 75
       lastFrame: 99
@@ -421,7 +461,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0013
+      name: xiniu_yidong
       takeName: Take 001
       firstFrame: 105
       lastFrame: 135
@@ -503,7 +543,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0014
+      name: xiniu_fangkai
       takeName: Take 001
       firstFrame: 140
       lastFrame: 154
@@ -605,7 +645,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []

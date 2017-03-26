@@ -28,6 +28,27 @@ ModelImporter:
     100044: //RootNode
     100046: Sphere001
     100048: Sphere002
+    100050: bozi
+    100052: er01_L
+    100054: er01_R
+    100056: gengu
+    100058: houtui01_L
+    100060: houtui01_R
+    100062: houtui02_L
+    100064: houtui02_R
+    100066: linyang
+    100068: qiantui01_L
+    100070: qiantui01_R
+    100072: qiantui02_L
+    100074: qiantui02_R
+    100076: shenti01
+    100078: shenti02
+    100080: tou
+    100082: wei01
+    100084: wei02w
+    100086: yan_L
+    100088: yan_R
+    100090: zui
     400000: 1
     400002: Bone001
     400004: Bone004
@@ -53,6 +74,27 @@ ModelImporter:
     400044: //RootNode
     400046: Sphere001
     400048: Sphere002
+    400050: bozi
+    400052: er01_L
+    400054: er01_R
+    400056: gengu
+    400058: houtui01_L
+    400060: houtui01_R
+    400062: houtui02_L
+    400064: houtui02_R
+    400066: linyang
+    400068: qiantui01_L
+    400070: qiantui01_R
+    400072: qiantui02_L
+    400074: qiantui02_R
+    400076: shenti01
+    400078: shenti02
+    400080: tou
+    400082: wei01
+    400084: wei02w
+    400086: yan_L
+    400088: yan_R
+    400090: zui
     2300000: Sphere001
     2300002: Sphere002
     3300000: Sphere001
@@ -60,15 +102,17 @@ ModelImporter:
     4300000: Sphere001
     4300002: Sphere002
     4300004: 1
-    7400000: Take 001
-    7400002: Take 0010
-    7400004: Take 0011
-    7400006: Take 0012
-    7400008: Take 0013
-    7400010: Take 0014
+    4300006: linyang
+    7400000: dengling_zhuangji
+    7400002: dengling_zhuangjiqianjin
+    7400004: dengling_run
+    7400006: dengling_beizhuang
+    7400008: dengling_yidong
+    7400010: dengling_fangkai
     9500000: //RootNode
     11100000: //RootNode
     13700000: 1
+    13700002: linyang
   materials:
     importMaterials: 1
     materialName: 0
@@ -86,7 +130,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: dengling_zhuangji
       takeName: Take 001
       firstFrame: 0
       lastFrame: 22
@@ -158,7 +202,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0010
+      name: dengling_zhuangjiqianjin
       takeName: Take 001
       firstFrame: 30
       lastFrame: 50
@@ -230,7 +274,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0011
+      name: dengling_run
       takeName: Take 001
       firstFrame: 55
       lastFrame: 72
@@ -302,7 +346,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0012
+      name: dengling_beizhuang
       takeName: Take 001
       firstFrame: 75
       lastFrame: 99
@@ -374,7 +418,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0013
+      name: dengling_yidong
       takeName: Take 001
       firstFrame: 105
       lastFrame: 135
@@ -446,7 +490,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0014
+      name: dengling_fangkai
       takeName: Take 001
       firstFrame: 140
       lastFrame: 154
@@ -538,7 +582,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []

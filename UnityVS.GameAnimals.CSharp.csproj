@@ -63,6 +63,10 @@
     <Compile Include="Assets\Script\AnimalEntity.cs" />
     <Compile Include="Assets\Script\Boot.cs" />
     <Compile Include="Assets\Script\GameCore.cs" />
+    <Compile Include="Assets\Script\GameDef.cs" />
+    <Compile Include="Assets\Script\RoadEntity.cs" />
+    <Compile Include="Assets\Script\SceneManager.cs" />
+    <Compile Include="Assets\Script\SeatEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UnityVS\Editor\新建文本文档.txt" />

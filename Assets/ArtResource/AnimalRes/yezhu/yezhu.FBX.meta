@@ -34,6 +34,32 @@ ModelImporter:
     100056: Sphere001
     100058: Sphere002
     100060: //RootNode
+    100062: er01_L
+    100064: er01_R
+    100066: er02_L
+    100068: er02_R
+    100070: gengu
+    100072: houtui01_L
+    100074: houtui01_R
+    100076: houtui02_L
+    100078: houtui02_R
+    100080: qiantui01_L
+    100082: qiantui01_R
+    100084: qiantui02_L
+    100086: qiantui02_R
+    100088: shenti01
+    100090: shenti02
+    100092: tou
+    100094: toufa01
+    100096: toufa02
+    100098: wei01
+    100100: wei02
+    100102: yan_L
+    100104: yan_R
+    100106: yanjing_L
+    100108: yanjing_R
+    100110: yezhu
+    100112: zui
     400000: Bone001
     400002: Bone004
     400004: Bone005
@@ -65,22 +91,56 @@ ModelImporter:
     400056: Sphere001
     400058: Sphere002
     400060: //RootNode
+    400062: er01_L
+    400064: er01_R
+    400066: er02_L
+    400068: er02_R
+    400070: gengu
+    400072: houtui01_L
+    400074: houtui01_R
+    400076: houtui02_L
+    400078: houtui02_R
+    400080: qiantui01_L
+    400082: qiantui01_R
+    400084: qiantui02_L
+    400086: qiantui02_R
+    400088: shenti01
+    400090: shenti02
+    400092: tou
+    400094: toufa01
+    400096: toufa02
+    400098: wei01
+    400100: wei02
+    400102: yan_L
+    400104: yan_R
+    400106: yanjing_L
+    400108: yanjing_R
+    400110: yezhu
+    400112: zui
     2300000: Sphere001
     2300002: Sphere002
+    2300004: yanjing_L
+    2300006: yanjing_R
     3300000: Sphere001
     3300002: Sphere002
+    3300004: yanjing_L
+    3300006: yanjing_R
     4300000: Sphere001
     4300002: Sphere002
     4300004: Box001
-    7400000: Take 001
-    7400002: Take 0010
-    7400004: Take 0011
-    7400006: Take 0012
-    7400008: Take 0013
-    7400010: Take 0014
+    4300006: yanjing_L
+    4300008: yanjing_R
+    4300010: yezhu
+    7400000: yezhu_zhuangji
+    7400002: yezhu_zhuangjiqianjin
+    7400004: yezhu_run
+    7400006: yezhu_beizhuang
+    7400008: yezhu_yidong
+    7400010: yezhu_fangkai
     9500000: //RootNode
     11100000: //RootNode
     13700000: Box001
+    13700002: yezhu
   materials:
     importMaterials: 1
     materialName: 0
@@ -98,7 +158,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: yezhu_zhuangji
       takeName: Take 001
       firstFrame: 0
       lastFrame: 22
@@ -186,7 +246,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0010
+      name: yezhu_zhuangjiqianjin
       takeName: Take 001
       firstFrame: 30
       lastFrame: 50
@@ -274,7 +334,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0011
+      name: yezhu_run
       takeName: Take 001
       firstFrame: 55
       lastFrame: 72
@@ -362,7 +422,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0012
+      name: yezhu_beizhuang
       takeName: Take 001
       firstFrame: 75
       lastFrame: 99
@@ -450,7 +510,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0013
+      name: yezhu_yidong
       takeName: Take 001
       firstFrame: 105
       lastFrame: 135
@@ -538,7 +598,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0014
+      name: yezhu_fangkai
       takeName: Take 001
       firstFrame: 140
       lastFrame: 154
@@ -646,7 +706,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []

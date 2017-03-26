@@ -34,6 +34,28 @@ ModelImporter:
     100056: right_eye
     100058: tonge
     100060: top_teeth
+    100062: bizi
+    100064: er01_L
+    100066: er01_R
+    100068: gengu
+    100070: houtui01_L
+    100072: houtui01_R
+    100074: houtui02_L
+    100076: houtui02_R
+    100078: qiantui01_L
+    100080: qiantui01_R
+    100082: qiantui02_L
+    100084: qiantui02_R
+    100086: shenti01
+    100088: shenti02
+    100090: tou
+    100092: wei01
+    100094: wei02
+    100096: wei03
+    100098: wei04
+    100100: yan_L
+    100102: yan_R
+    100104: zui
     400000: Bone001
     400002: Bone004
     400004: Bone005
@@ -65,6 +87,28 @@ ModelImporter:
     400056: right_eye
     400058: tonge
     400060: top_teeth
+    400062: bizi
+    400064: er01_L
+    400066: er01_R
+    400068: gengu
+    400070: houtui01_L
+    400072: houtui01_R
+    400074: houtui02_L
+    400076: houtui02_R
+    400078: qiantui01_L
+    400080: qiantui01_R
+    400082: qiantui02_L
+    400084: qiantui02_R
+    400086: shenti01
+    400088: shenti02
+    400090: tou
+    400092: wei01
+    400094: wei02
+    400096: wei03
+    400098: wei04
+    400100: yan_L
+    400102: yan_R
+    400104: zui
     2300000: left_horn
     2300002: left_horn001
     3300000: left_horn
@@ -77,12 +121,12 @@ ModelImporter:
     4300010: right_eye
     4300012: left_horn
     4300014: left_horn001
-    7400000: Take 001
-    7400002: Take 0010
-    7400004: Take 0011
-    7400006: Take 0012
-    7400008: Take 0013
-    7400010: Take 0014
+    7400000: jiaoma_zhuangji
+    7400002: jiaoma_zhuangjiqianjin
+    7400004: jiaoma_run
+    7400006: jiaoma_beizhuang
+    7400008: jiaoma_yidong
+    7400010: jiaoma_fangkai
     9500000: //RootNode
     11100000: //RootNode
     13700000: bottom_teeth
@@ -108,7 +152,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: jiaoma_zhuangji
       takeName: Take 001
       firstFrame: 0
       lastFrame: 22
@@ -196,7 +240,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0010
+      name: jiaoma_zhuangjiqianjin
       takeName: Take 001
       firstFrame: 30
       lastFrame: 50
@@ -284,7 +328,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0011
+      name: jiaoma_run
       takeName: Take 001
       firstFrame: 55
       lastFrame: 72
@@ -372,7 +416,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0012
+      name: jiaoma_beizhuang
       takeName: Take 001
       firstFrame: 75
       lastFrame: 99
@@ -460,7 +504,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0013
+      name: jiaoma_yidong
       takeName: Take 001
       firstFrame: 105
       lastFrame: 135
@@ -548,7 +592,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 0014
+      name: jiaoma_fangkai
       takeName: Take 001
       firstFrame: 140
       lastFrame: 154
@@ -656,7 +700,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
