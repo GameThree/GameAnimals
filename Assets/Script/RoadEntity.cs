@@ -88,7 +88,7 @@ public class SideInfo
                 {
                     SideAnimals[i].Move(normalDeltaMove);
                     bool canConnect = false;
-                    if (i > 0)
+                    if (i > 0 && SideAnimals[0].CurState== AnimalState.Connect)
                     {
                         canConnect = SideAnimals[i].CanSameSideConnect(SideAnimals[i - 1].MoveDistance, SideAnimals[i - 1].BodyLength);
                     }
