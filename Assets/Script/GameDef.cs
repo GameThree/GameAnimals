@@ -15,3 +15,4 @@ public enum AnimalState
     Dead,
     Finish,
 }
+
