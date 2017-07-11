@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: 911856cfc05bdd546ac2578baf77dc93
+timeCreated: 1499097970
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bizi01
+    100002: bizi02
+    100004: bizi03
+    100006: bizi04
+    100008: Bone028
+    100010: Bone035
+    100012: Bone036
+    100014: //RootNode
+    100016: er01_L
+    100018: er01_R
+    100020: er02_L
+    100022: er02_R
+    100024: gengu
+    100026: houtui01_L
+    100028: houtui01_R
+    100030: houtui02_L
+    100032: houtui02_R
+    100034: Plane009
+    100036: PXY
+    100038: qiantui01_L
+    100040: qiantui01_R
+    100042: qiantui02_L
+    100044: qiantui02_R
+    100046: shenti01
+    100048: shenti02
+    100050: tou
+    100052: touhua01
+    100054: touhua02
+    100056: touhua03
+    100058: touhua04
+    100060: touhua05
+    100062: touhua06
+    100064: touhua07
+    100066: touhua08
+    100068: touhua09
+    100070: touhua10
+    100072: wei01
+    100074: wei02
+    100076: yan_L
+    100078: yan_R
+    100080: zui
+    400000: bizi01
+    400002: bizi02
+    400004: bizi03
+    400006: bizi04
+    400008: Bone028
+    400010: Bone035
+    400012: Bone036
+    400014: //RootNode
+    400016: er01_L
+    400018: er01_R
+    400020: er02_L
+    400022: er02_R
+    400024: gengu
+    400026: houtui01_L
+    400028: houtui01_R
+    400030: houtui02_L
+    400032: houtui02_R
+    400034: Plane009
+    400036: PXY
+    400038: qiantui01_L
+    400040: qiantui01_R
+    400042: qiantui02_L
+    400044: qiantui02_R
+    400046: shenti01
+    400048: shenti02
+    400050: tou
+    400052: touhua01
+    400054: touhua02
+    400056: touhua03
+    400058: touhua04
+    400060: touhua05
+    400062: touhua06
+    400064: touhua07
+    400066: touhua08
+    400068: touhua09
+    400070: touhua10
+    400072: wei01
+    400074: wei02
+    400076: yan_L
+    400078: yan_R
+    400080: zui
+    4300000: PXY
+    4300002: Plane009
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Plane009
+    13700002: PXY
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

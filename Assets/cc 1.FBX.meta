@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 8ebd0d9185a869b41a5d6981c7a03e85
+timeCreated: 1499099229
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bizi
+    100002: Body
+    100004: Box001
+    100006: Box002
+    100008: Box003
+    100010: Box004
+    100012: cao001
+    100014: cao002
+    100016: cao003
+    100018: cao004
+    100020: cao005
+    100022: cao006
+    100024: cao01
+    100026: cao02
+    100028: cao03
+    100030: cao04
+    100032: cao05
+    100034: cao06
+    100036: cao1
+    100038: cao2
+    100040: cao3
+    100042: cao4
+    100044: cao5
+    100046: cao6
+    100048: //RootNode
+    100050: Cylinder001
+    100052: Cylinder002
+    100054: Cylinder003
+    100056: gengu
+    100058: Head
+    100060: houtui01_L
+    100062: houtui01_R
+    100064: houtui02_L
+    100066: houtui02_R
+    100068: nurbsToPoly008
+    100070: nurbsToPoly5
+    100072: nurbsToPoly6
+    100074: nurbsToPoly7
+    100076: qiantui01_L
+    100078: qiantui01_R
+    100080: qiantui02_L
+    100082: qiantui02_R
+    100084: shenti01
+    100086: shenti02
+    100088: tou
+    100090: wei01
+    100092: wei02
+    100094: wei03
+    100096: wei04
+    100098: yan_L
+    100100: yan_R
+    100102: zui
+    400000: bizi
+    400002: Body
+    400004: Box001
+    400006: Box002
+    400008: Box003
+    400010: Box004
+    400012: cao001
+    400014: cao002
+    400016: cao003
+    400018: cao004
+    400020: cao005
+    400022: cao006
+    400024: cao01
+    400026: cao02
+    400028: cao03
+    400030: cao04
+    400032: cao05
+    400034: cao06
+    400036: cao1
+    400038: cao2
+    400040: cao3
+    400042: cao4
+    400044: cao5
+    400046: cao6
+    400048: //RootNode
+    400050: Cylinder001
+    400052: Cylinder002
+    400054: Cylinder003
+    400056: gengu
+    400058: Head
+    400060: houtui01_L
+    400062: houtui01_R
+    400064: houtui02_L
+    400066: houtui02_R
+    400068: nurbsToPoly008
+    400070: nurbsToPoly5
+    400072: nurbsToPoly6
+    400074: nurbsToPoly7
+    400076: qiantui01_L
+    400078: qiantui01_R
+    400080: qiantui02_L
+    400082: qiantui02_R
+    400084: shenti01
+    400086: shenti02
+    400088: tou
+    400090: wei01
+    400092: wei02
+    400094: wei03
+    400096: wei04
+    400098: yan_L
+    400100: yan_R
+    400102: zui
+    2300000: Box001
+    2300002: Box002
+    2300004: Box003
+    2300006: Box004
+    2300008: nurbsToPoly5
+    3300000: Box001
+    3300002: Box002
+    3300004: Box003
+    3300006: Box004
+    3300008: nurbsToPoly5
+    4300000: nurbsToPoly7
+    4300002: nurbsToPoly6
+    4300004: Body
+    4300006: Head
+    4300008: nurbsToPoly008
+    4300010: nurbsToPoly5
+    4300012: Box003
+    4300014: Box002
+    4300016: Box004
+    4300018: Box001
+    4300020: Cylinder001
+    4300022: Cylinder002
+    4300024: Cylinder003
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Body
+    13700002: Cylinder001
+    13700004: Cylinder002
+    13700006: Cylinder003
+    13700008: Head
+    13700010: nurbsToPoly008
+    13700012: nurbsToPoly6
+    13700014: nurbsToPoly7
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

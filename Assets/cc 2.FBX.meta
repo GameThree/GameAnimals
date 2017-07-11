@@ -1,0 +1,140 @@
+fileFormatVersion: 2
+guid: 8e2b875ea7a2ff4449f4912aa66ed822
+timeCreated: 1499097356
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: er01_L
+    100004: er01_R
+    100006: er02_L
+    100008: er02_R
+    100010: gengu
+    100012: houtui01_L
+    100014: houtui01_R
+    100016: houtui02_L
+    100018: houtui02_R
+    100020: qiantui01_L
+    100022: qiantui01_R
+    100024: qiantui02_L
+    100026: qiantui02_R
+    100028: shenti01
+    100030: shenti02
+    100032: tou
+    100034: toufa01
+    100036: toufa02
+    100038: wei01
+    100040: wei02
+    100042: yan_L
+    100044: yan_R
+    100046: yanjing_L
+    100048: yanjing_R
+    100050: yezhu
+    100052: zui
+    400000: //RootNode
+    400002: er01_L
+    400004: er01_R
+    400006: er02_L
+    400008: er02_R
+    400010: gengu
+    400012: houtui01_L
+    400014: houtui01_R
+    400016: houtui02_L
+    400018: houtui02_R
+    400020: qiantui01_L
+    400022: qiantui01_R
+    400024: qiantui02_L
+    400026: qiantui02_R
+    400028: shenti01
+    400030: shenti02
+    400032: tou
+    400034: toufa01
+    400036: toufa02
+    400038: wei01
+    400040: wei02
+    400042: yan_L
+    400044: yan_R
+    400046: yanjing_L
+    400048: yanjing_R
+    400050: yezhu
+    400052: zui
+    2300000: yanjing_L
+    2300002: yanjing_R
+    3300000: yanjing_L
+    3300002: yanjing_R
+    4300000: yanjing_L
+    4300002: yanjing_R
+    4300004: yezhu
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: yezhu
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
