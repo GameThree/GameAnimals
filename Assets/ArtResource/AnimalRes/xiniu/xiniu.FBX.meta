@@ -109,7 +109,7 @@ ModelImporter:
     7400002: xiniu_zhuangjiqianjin
     7400004: xiniu_Run
     7400006: xiniu_beizhuang
-    7400008: xiniu_yidong
+    7400008: xiniu_Select
     7400010: xiniu_fangkai
     9500000: //RootNode
     11100000: //RootNode
@@ -474,7 +474,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: xiniu_yidong
+      name: xiniu_Select
       takeName: Take 001
       firstFrame: 105
       lastFrame: 135

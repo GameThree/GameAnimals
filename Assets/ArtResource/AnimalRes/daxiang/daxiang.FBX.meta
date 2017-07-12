@@ -191,7 +191,7 @@ ModelImporter:
     7400002: daxiang_zhuangjiqianjin
     7400004: daxiang_Run
     7400006: daxiang_beizhuang
-    7400008: daxiang_yidong
+    7400008: daxiang_Select
     7400010: daxiang_fangkai
     9500000: //RootNode
     11100000: //RootNode
@@ -731,7 +731,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: daxiang_yidong
+      name: daxiang_Select
       takeName: Take 001
       firstFrame: 151
       lastFrame: 181
