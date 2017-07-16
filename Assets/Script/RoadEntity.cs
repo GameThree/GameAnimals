@@ -4,9 +4,13 @@ using System.Collections.Generic;
 
 public class RoadEntity : MonoBehaviour 
 {
+    [Header("路的编号")]
     public int RoadIndex = 0;
+    [Header("上面出发位置")]
     public float TopMarkPos = 10;
+    [Header("下面出发位置")]
     public float BottomMarkPos = -5;
+    [Header("上路点，超过该点动物才会被放下")]
     public float BottomOnRoadPoint = -3.5f;
     private SideInfo t2bSide = new SideInfo();
     private SideInfo b2tSide = new SideInfo();
@@ -15,23 +19,32 @@ public class RoadEntity : MonoBehaviour
     {
         RoadLength = TopMarkPos - BottomMarkPos;
     }
-    public bool TryOnRoad(Vector3 animalPos, bool isTop)
+    public bool TryOnRoad(Vector3 animalPos, bool isToTop)
     {
         Vector3 roadPos =transform.position;
-        return animalPos.z <= BottomOnRoadPoint && animalPos.x >= roadPos.x - 1 && animalPos.x <= roadPos.x + 1;
+        bool canPutDown = true;
+        if (isToTop)
+        {
+            canPutDown = animalPos.z > BottomOnRoadPoint;
+        }
+        return canPutDown && animalPos.x >= roadPos.x - 1 && animalPos.x <= roadPos.x + 1;
     }
-    public void OnRoad(AnimalEntity animal, bool isTop)
+    public void OnRoad(AnimalEntity animal, bool isToTop)
     {
         animal.Index = RoadIndex;
         float zPos =TopMarkPos;
-        if (isTop)
+        if (!isToTop)
             t2bSide.AddAnimal(animal);
         else
         { 
             b2tSide.AddAnimal(animal);
             zPos =BottomMarkPos;
         }
-        animal.SetParent(transform, new Vector3(0, 0, zPos));
+        animal.transform.parent = transform;
+
+        animal.transform.rotation =isToTop? Quaternion.Euler(new Vector3(0f, 0f, 0f)): Quaternion.Euler(new Vector3(0f, 180f, 0f));
+        animal.transform.position = new Vector3(0, 0, zPos);
+        animal.RunToTop = isToTop;
         animal.SetState(AnimalState.Run);
     }
     void Update()
@@ -66,7 +79,7 @@ public class SideInfo
                 bool canConnect = false;
                 if (diffSideFirstAnim != null)
                 {
-                    canConnect = SideAnimals[0].CanDiffSideConnect(diffSideFirstAnim.MoveDistance, diffSideFirstAnim.BodyLength);
+                    canConnect = CanDiffSideConnect(diffSideFirstAnim, SideAnimals[0], roadLength);
                 }
                 if (canConnect)
                 {
@@ -90,7 +103,7 @@ public class SideInfo
                     bool canConnect = false;
                     if (i > 0 && SideAnimals[0].CurState== AnimalState.Connect)
                     {
-                        canConnect = SideAnimals[i].CanSameSideConnect(SideAnimals[i - 1].MoveDistance, SideAnimals[i - 1].BodyLength);
+                        canConnect = CanSameSideConnect(SideAnimals[i - 1], SideAnimals[i]);
                     }
                     if (canConnect)
                     {
@@ -128,6 +141,16 @@ public class SideInfo
             //(SidePower -otherPower)/SidePower
         }
         //(SidePower -otherPower)/SidePower
+    }
+    //判断相对跑的动物是否能链接起来
+    public bool CanDiffSideConnect(AnimalEntity anima0,AnimalEntity animal1,float roadLength)
+    {
+        return (anima0.MoveDistance + animal1.MoveDistance) >= roadLength;
+    }
+    //判断同一侧的动物链接起来
+    public bool CanSameSideConnect(AnimalEntity anima0, AnimalEntity animal1)
+    {
+        return (anima0.MoveDistance - animal1.MoveDistance - anima0.BodyLength ) <= 0;
     }
 
     public AnimalEntity GetFirst()

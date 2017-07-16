@@ -217,8 +217,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4019607910066512}
+  - component: {fileID: 114223000257963124}
   m_Layer: 0
-  m_Name: prefab_yezhu
+  m_Name: yezhu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -920,6 +921,22 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &114223000257963124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468545928781884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8684384cbd8e0ee4992c3dbb026f14e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animation: {fileID: 111124894528436332}
+  defaultPower: 0
+  bodyLength: 0.95
+  Index: 0
+  RunToTop: 1
 --- !u!137 &137818149398021314
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

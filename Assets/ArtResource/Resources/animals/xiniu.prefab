@@ -49,8 +49,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4804040286447630}
+  - component: {fileID: 114363040710839040}
   m_Layer: 0
-  m_Name: prefab_xiniu
+  m_Name: xiniu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,6 +885,22 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &114363040710839040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072288996213460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8684384cbd8e0ee4992c3dbb026f14e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animation: {fileID: 111912802480458942}
+  defaultPower: 0
+  bodyLength: 1.75
+  Index: 0
+  RunToTop: 1
 --- !u!137 &137141082873677106
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

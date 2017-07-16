@@ -5,24 +5,30 @@ using System.Collections.Generic;
 public class SceneManager : MonoBehaviour 
 {
     public static SceneManager Instance;
+    [Header("动物资源列表")]
     public List<GameObject> AnimalsPrefab=new List<GameObject>();
+    [Header("可行走道路列表")]
     public List<RoadEntity> RoadList = new List<RoadEntity>();
+    [Header("座位列表，产生动物放置点")]
     public List<SeatEntity> SeatList = new List<SeatEntity>();
     private List<AnimalEntity> CollectAnimalList = new List<AnimalEntity>();
     public bool NeedCreate = true;
     private bool InCreating = false;
     //public List<AnimalEntity> 
-    public bool TrySetToRoad(AnimalEntity entity,bool isTop)
+    public bool TrySetToRoad(AnimalEntity entity,bool isToTop)
     {
         if (entity == null)
             return false;
         for (int i = 0; i < RoadList.Count; i++)
         {
-            if (RoadList[i].TryOnRoad(entity.transform.position, isTop))
+            if (RoadList[i].TryOnRoad(entity.transform.position, isToTop))
             {
-                SeatList[entity.Index].Animal = null;
-                RoadList[i].OnRoad(entity, isTop);
-                NeedCreate = true;
+                if (isToTop)
+                {
+                    SeatList[entity.Index].Animal = null;
+                    NeedCreate = true;
+                }
+                RoadList[i].OnRoad(entity, isToTop);
                 return true;
             }
         }
@@ -57,12 +63,64 @@ public class SceneManager : MonoBehaviour
             return;
         NeedCreate = false;
         InCreating = true;
-        StartCoroutine(CreateAnimalAnsyc("prefab_daxiang"));
+        int index = Random.Range(0, AnimalsPrefab.Count);
+        string name = AnimalsPrefab[index].name;
+        StartCoroutine(AnimalFactory("daxiang"));
     }
 
-    IEnumerator CreateAnimalAnsyc(string name)
-    {       
+    public void SetSelfAnimaToSeat(AnimalEntity entity )
+    {
+        if (entity == null)
+        {
+            Debug.LogError("传入空的动物实体");
+            return;
+        }
+        bool find = false;
+        for (int i = 0; i < SeatList.Count; i++)
+        {
+            if (SeatList[i].Animal == null)
+            {
+                if (find)
+                {
+                    NeedCreate = true;
+                    break;
+                }
+                else
+                {
+                    SeatList[i].Animal = entity;
+                    entity.gameObject.SetActive(true);
+                    entity.SetState(AnimalState.Wait);
+                    find = true;
+                }
+            }
+        }
+        InCreating = false;
+    }
+
+    public void CreateEnemyAnimal()
+    {
+        int index = Random.Range(0, AnimalsPrefab.Count);
+        var entity = CreateAnimalEntity(AnimalsPrefab[index].name);
+        if (entity == null)
+        {
+            Debug.LogError("生产动物失败" + AnimalsPrefab[index].name);
+            return;
+        }
+        int roadIndex = Random.Range(0, RoadList.Count);
+        entity.transform.position = RoadList[roadIndex].transform.position;
+        TrySetToRoad(entity, false);
+    }
+    //每隔两秒生产一个
+    private IEnumerator AnimalFactory(string name )
+    {
         yield return new WaitForSeconds(2);
+        var entiy = CreateAnimalEntity(name);
+        SetSelfAnimaToSeat(entiy);
+        CreateEnemyAnimal();
+        
+    }
+    private AnimalEntity CreateAnimalEntity(string name)
+    {
         AnimalEntity entity=null;
         for(int i=0;i<CollectAnimalList.Count;i++)
         {
@@ -80,7 +138,7 @@ public class SceneManager : MonoBehaviour
                 if (AnimalsPrefab[i].name.Equals(name))
                 {
                     GameObject animal = Object.Instantiate(AnimalsPrefab[i]) as GameObject;
-                    animal.name = AnimalsPrefab[0].name;
+                    animal.name = AnimalsPrefab[i].name;
                     entity = animal.GetComponent<AnimalEntity>();
                     break;
                 }
@@ -101,28 +159,7 @@ public class SceneManager : MonoBehaviour
                Debug.LogError("找不到 ：" + name);
            }
         }
-        
-
-        bool find = false;
-        for (int i = 0; i < SeatList.Count; i++)
-        {
-            if (SeatList[i].Animal == null)
-            {
-                if (find)
-                {
-                    NeedCreate = true;
-                    break;
-                }
-                else
-                {
-                    SeatList[i].Animal = entity;
-                    entity.gameObject.SetActive(true);
-                    entity.SetState(AnimalState.Wait);
-                    find = true;
-                } 
-            }
-        }
-        InCreating = false;
+        return entity;
     }
 	// Use this for initialization
 	void Start () 
