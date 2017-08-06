@@ -1055,10 +1055,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 111042912455002592}
-  defaultPower: 0
+  power: 20
   bodyLength: 1.25
   Index: 0
   RunToTop: 1
+  curState: 1
+  moveDistance: 0
 --- !u!137 &137067477049632646
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class RoadEntity : MonoBehaviour 
 {
@@ -12,8 +13,8 @@ public class RoadEntity : MonoBehaviour
     public float BottomMarkPos = -5;
     [Header("上路点，超过该点动物才会被放下")]
     public float BottomOnRoadPoint = -3.5f;
-    private SideInfo t2bSide = new SideInfo();
-    private SideInfo b2tSide = new SideInfo();
+    public SideInfo t2bSide = new SideInfo();
+    public SideInfo b2tSide = new SideInfo();
     private float RoadLength;
     void Start()
     {
@@ -29,6 +30,7 @@ public class RoadEntity : MonoBehaviour
         }
         return canPutDown && animalPos.x >= roadPos.x - 1 && animalPos.x <= roadPos.x + 1;
     }
+
     public void OnRoad(AnimalEntity animal, bool isToTop)
     {
         animal.Index = RoadIndex;
@@ -40,12 +42,7 @@ public class RoadEntity : MonoBehaviour
             b2tSide.AddAnimal(animal);
             zPos =BottomMarkPos;
         }
-        animal.transform.parent = transform;
-
-        animal.transform.rotation =isToTop? Quaternion.Euler(new Vector3(0f, 0f, 0f)): Quaternion.Euler(new Vector3(0f, 180f, 0f));
-        animal.transform.position = new Vector3(0, 0, zPos);
-        animal.RunToTop = isToTop;
-        animal.SetState(AnimalState.Run);
+        animal.OnToRoad(isToTop, zPos);
     }
     void Update()
     {
@@ -55,11 +52,17 @@ public class RoadEntity : MonoBehaviour
         b2tSide.UpdateSpeed(t2bSide.SidePower);
     }
 }
-
+[Serializable]
 public class SideInfo
 {
     public List<AnimalEntity> SideAnimals = new List<AnimalEntity>();
-    public float SideSpeed = 0;
+    /// <summary>
+    /// 基础速度的百分比
+    /// </summary>
+    public float SpeedPercent = 0;
+    /// <summary>
+    /// 一个方向的总体力量
+    /// </summary>
     public float SidePower = 0;
 
     public void AddAnimal(AnimalEntity entity)
@@ -70,10 +73,11 @@ public class SideInfo
     public void UpdateMove(float deltaTime, AnimalEntity diffSideFirstAnim, float roadLength)
     {
         float normalDeltaMove = deltaTime * ConstValue.DefaultSpeed;
-        float connectDeltaMove = deltaTime * SideSpeed;
+        float connectDeltaMove = deltaTime * ConstValue.DefaultSpeed * SpeedPercent;
 
         for (int i = 0; i < SideAnimals.Count; i++)
         {
+            //如果第一个动物未连接，则判断第一个动物和反向动物第一个碰头的时候设置为链接状态 
             if (i == 0 && SideAnimals[0].CurState != AnimalState.Connect)
             {
                 bool canConnect = false;
@@ -81,10 +85,11 @@ public class SideInfo
                 {
                     canConnect = CanDiffSideConnect(diffSideFirstAnim, SideAnimals[0], roadLength);
                 }
+                //如果链接起来则设置此方向的力度
                 if (canConnect)
                 {
+                    SidePower += SideAnimals[0].Power;
                     SideAnimals[0].SetState(AnimalState.Connect);
-                    SidePower += SideAnimals[0].CurPower;
                 }
                 else
                 {
@@ -93,20 +98,32 @@ public class SideInfo
             }
             else 
             {
+                //如果对面没动物了 要把所有设置为非链接状态并且方向力清零
+                if (diffSideFirstAnim == null)
+                {
+                    if(SideAnimals[i].CurState == AnimalState.Connect)
+                    {
+                        SideAnimals[i].SetState(AnimalState.Run);
+                    }
+                    SidePower = 0;
+                }
+                //如果为链接状态则按照链接状态移动
                 if (SideAnimals[i].CurState == AnimalState.Connect)
                 {
                     SideAnimals[i].Move(connectDeltaMove);
                 }
                 else if (SideAnimals[i].CurState == AnimalState.Run)
-                {
+                {//非链接状态判断是否需要链接 和前面一个动物的距离差值是否为前一动物的身长 是则链接 否则则按照非链接状态移动
                     SideAnimals[i].Move(normalDeltaMove);
                     bool canConnect = false;
                     if (i > 0 && SideAnimals[0].CurState== AnimalState.Connect)
                     {
                         canConnect = CanSameSideConnect(SideAnimals[i - 1], SideAnimals[i]);
                     }
+                    //如果链接起来方向力度增加
                     if (canConnect)
                     {
+                        SidePower += SideAnimals[i].Power;
                         SideAnimals[i].SetState(AnimalState.Connect);
                     }
                 }
@@ -115,18 +132,43 @@ public class SideInfo
 
         if (SideAnimals.Count > 0)
         {
+            //判断地0个动物是否跑完 跑完则把后面链接的动物的状态设为run,并且把方向力设置为0
             if (SideAnimals[0].MoveDistance >= roadLength)
             {
                 var entity = SideAnimals[0];
+                if (entity.CurState == AnimalState.Connect)
+                {
+                    SidePower -= entity.Power;
+                }
                 entity.SetState(AnimalState.Finish);
                 SideAnimals.RemoveAt(0);
                 SceneManager.Instance.AddToCollectList(entity);
-                if (SideAnimals.Count>0)
-                SideAnimals[0].SetState(AnimalState.Run);
+                if (SideAnimals.Count > 0)
+                {
+                    SideAnimals[0].SetState(AnimalState.Run);
+                }
+                SidePower = 0;
+                for (int i = 0; i < SideAnimals.Count; i++)
+                {
+                    //如果第0个动物是Run则后面每个动物都是run
+                    if (SideAnimals[0].CurState == AnimalState.Run && SideAnimals[i].CurState == AnimalState.Connect)
+                    {
+                        SideAnimals[i].SetState(AnimalState.Run);
+                    }
+                }
             }
-            if (SideSpeed < 0 && SideAnimals[SideAnimals.Count-1].MoveDistance<=0)
+            //如果被对面推回去则方向力减小
+            int lastIndex = SideAnimals.Count - 1;
+            if (SideAnimals.Count > 0 && SideAnimals[lastIndex].MoveDistance <= 0)
             {
-                SideAnimals.RemoveAt(SideAnimals.Count - 1);
+                var entity = SideAnimals[lastIndex];
+                if (entity.CurState == AnimalState.Connect)
+                {
+                    SidePower -= entity.Power;
+                }
+                entity.SetState(AnimalState.Finish);
+                SideAnimals.RemoveAt(lastIndex);
+                SceneManager.Instance.AddToCollectList(entity);
             }
         }
 
@@ -135,10 +177,10 @@ public class SideInfo
     public void UpdateSpeed(float otherPower)
     {
         if (otherPower == 0)
-            SideSpeed = 0;
+            SpeedPercent = 1;
         else 
         {
-            //(SidePower -otherPower)/SidePower
+            SpeedPercent = (SidePower - otherPower) / (SidePower + otherPower);
         }
         //(SidePower -otherPower)/SidePower
     }

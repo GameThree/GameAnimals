@@ -11,6 +11,8 @@ public class SceneManager : MonoBehaviour
     public List<RoadEntity> RoadList = new List<RoadEntity>();
     [Header("座位列表，产生动物放置点")]
     public List<SeatEntity> SeatList = new List<SeatEntity>();
+    [Header("动物回收的父节点")]
+    public GameObject RecycleObj;
     private List<AnimalEntity> CollectAnimalList = new List<AnimalEntity>();
     public bool NeedCreate = true;
     private bool InCreating = false;
@@ -32,14 +34,14 @@ public class SceneManager : MonoBehaviour
                 return true;
             }
         }
-        entity.ToSeatDefault();
+        entity.SetState(AnimalState.Wait);
         return false;
     }
     public void AddToCollectList(AnimalEntity entity)
     {
         entity.gameObject.SetActive(false);
         entity.Index = -1;
-        entity.transform.parent = null;
+        entity.transform.parent = RecycleObj.transform;
         CollectAnimalList.Add(entity);
     }
     public Vector2 GetStartPos(int index,bool isTop)

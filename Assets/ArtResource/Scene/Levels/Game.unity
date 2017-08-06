@@ -197,10 +197,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1048193030562668, guid: 73d7724f2896c7947b056a9452c09aaf, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73d7724f2896c7947b056a9452c09aaf, type: 2}
   m_IsPrefabParent: 0
@@ -253,11 +249,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2008372, guid: 46bae77d4fad51d479a8603eda149288, type: 2}
       propertyPath: orthographic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2008372, guid: 46bae77d4fad51d479a8603eda149288, type: 2}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008372, guid: 46bae77d4fad51d479a8603eda149288, type: 2}
+      propertyPath: orthographic size
+      value: 7.22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46bae77d4fad51d479a8603eda149288, type: 2}

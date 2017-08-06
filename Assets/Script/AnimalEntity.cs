@@ -7,23 +7,20 @@ public class AnimalEntity : MonoBehaviour
     [Header("挂上动物的碰撞组件")]
     public Animation animation;
     [Header("力量")]
-    public float defaultPower;
+    public float power;
     [Header("身体长度")]
     public float bodyLength;
     //所在Seat位置，或者所在路的位置
     public int Index;
 
     public bool RunToTop =true;
-    private AnimalState curState = AnimalState.Wait;
+    public AnimalState curState = AnimalState.Wait;
     
-    private float moveDistance = 0;
-
-    private float curPower;
+    public float moveDistance = 0;
     
 
     void Start()
     {
-        curPower = defaultPower;
         if (animation == null)
         {
             animation = gameObject.GetComponentInChildren<Animation>();
@@ -54,7 +51,7 @@ public class AnimalEntity : MonoBehaviour
                 Vector3 curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
                 Vector3 curPosition = camera.ScreenToWorldPoint(curScreenSpace);
                 Debug.Log(Input.mousePosition + "    " + curPosition);
-                transform.position = curPosition + offset;
+                transform.position = curPosition+ offset;
                 yield return wait;
             }
             
@@ -71,7 +68,12 @@ public class AnimalEntity : MonoBehaviour
         }
        
     }
-
+    public void StartRun()
+    {
+        Vector2 start = SceneManager.Instance.GetStartPos(Index, !RunToTop);
+        transform.position = new Vector3(start.x, 0, start.y);
+        SetState(AnimalState.Run);
+    }
     public void SetState(AnimalState state)
     {
         if (curState == state)
@@ -88,13 +90,7 @@ public class AnimalEntity : MonoBehaviour
         }
         else if (curState == AnimalState.Wait)
         {
- 
-        }
-        else if (curState == AnimalState.Run)
-        {
-            Vector2 start = SceneManager.Instance.GetStartPos(Index, !RunToTop);
-            transform.position = new Vector3(start.x, 0, start.y);
-            animation.Play(gameObject.name + "_" + curState.ToString());
+            ToSeatDefault();
         }
         else if (curState == AnimalState.Select)
         {
@@ -103,25 +99,35 @@ public class AnimalEntity : MonoBehaviour
         }
         else
         {
-            animation.Play(curState.ToString());
+            animation.Play(gameObject.name + "_" + curState.ToString());
         }
     }
-
     public void Move(float deltaMove)
     {
         transform.localPosition += new Vector3(0, 0, RunToTop ? deltaMove : -deltaMove);
         moveDistance += deltaMove;
-        Debug.Log(moveDistance + "      " + gameObject.name);
     }
+    public void OnToRoad(bool isToTop,float zPos) 
+    {
+       gameObject.SetActive(true);
+       transform.parent = null;
 
+       transform.rotation =isToTop? Quaternion.Euler(new Vector3(0f, 0f, 0f)): Quaternion.Euler(new Vector3(0f, 180f, 0f));
+       transform.position = new Vector3(0, 0, zPos);
+       RunToTop = isToTop;
+       StartRun();
+    }
     public void ToSeatDefault()
     {
+        gameObject.SetActive(true);
         transform.localPosition = Vector3.zero;
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+        moveDistance = 0f;
     }
 
-    public float CurPower
+    public float Power
     {
-        get { return curPower; }
+        get { return power; }
     }
 
     public float BodyLength
