@@ -135,7 +135,7 @@ public class SceneManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         var entiy = CreateAnimalEntity(name);
         SetSelfAnimaToSeat(entiy);
-       
+        CreateEnemyAnimal();
         
     }
     private AnimalEntity CreateAnimalEntity(string name)

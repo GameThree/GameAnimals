@@ -105,7 +105,6 @@ public class AnimalEntity : MonoBehaviour
     }
     public void Move(float deltaMove)
     {
-        Debug.Log("----------------" + gameObject.name + "       " + deltaMove);
         transform.localPosition += new Vector3(0, 0, RunToTop ? deltaMove : -deltaMove);
         moveDistance += deltaMove;
     }

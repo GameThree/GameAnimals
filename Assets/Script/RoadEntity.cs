@@ -147,7 +147,6 @@ public class SideInfo
                     }
                 }
             }
-            Debug.Log(SideAnimals[i].MoveDistance + "         " + SideAnimals[i].name + "          " + SideAnimals[i].CurState + "  " + SideAnimals[i].RunToTop);
         }
 
         if (SideAnimals.Count > 0)
@@ -195,10 +194,10 @@ public class SideInfo
 
     public void UpdateMove(float deltaTime, float roadLength ,float otherMoveDis)
     {
-        float normalDeltaMove =deltaTime * 2;
-        float connectDeltaMove =deltaTime * 2 * SpeedPercent;
         for (int i = 0; i < SideAnimals.Count; i++)
         {
+            float normalDeltaMove = deltaTime * SideAnimals[i].AnimalDefaultSpeed;
+            float connectDeltaMove = deltaTime * SideAnimals[i].AnimalDefaultSpeed * SpeedPercent;
             //如果为链接状态则按照链接状态移动
             if (SideAnimals[i].CurState == AnimalState.Connect)
             {
