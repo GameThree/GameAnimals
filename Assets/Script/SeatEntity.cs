@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SeatEntity : MonoBehaviour 
 {
+    [Header("座位编号")]
     public int SeatIndex = 0;
 
     private AnimalEntity animal;

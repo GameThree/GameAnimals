@@ -7,11 +7,15 @@ public class RoadEntity : MonoBehaviour
 {
     [Header("路的编号")]
     public int RoadIndex = 0;
-    [Header("上面出发位置")]
+    [Header("路的左边界(pos.x)")]
+    public float RoadLeft = 0;
+    [Header("路的右边界(pos.x)")]
+    public float RoadRight = 0;
+    [Header("上面出发位置(pos.y)")]
     public float TopMarkPos = 10;
-    [Header("下面出发位置")]
+    [Header("下面出发位置(pos.y)")]
     public float BottomMarkPos = -5;
-    [Header("上路点，超过该点动物才会被放下")]
+    [Header("上路点，超过该点动物才会被放下(pos.y)")]
     public float BottomOnRoadPoint = -3.5f;
     public SideInfo t2bSide = new SideInfo();
     public SideInfo b2tSide = new SideInfo();
@@ -23,12 +27,36 @@ public class RoadEntity : MonoBehaviour
     public bool TryOnRoad(Vector3 animalPos, bool isToTop)
     {
         Vector3 roadPos =transform.position;
-        bool canPutDown = true;
+       
+        /**
+         * 默认判断从上往下走，先判断此路上走的最后一个动物是否走出去了（走出身长的距离） 如果没走出去则不能放。
+         * 否则判断从下往上走的第一个是否马上就到终点了，如果马上就到终点则此路此时不能放，
+         * 如果是从下往上走也是相同逻辑
+         * **/
+        bool canPutDown = false;
         if (isToTop)
         {
-            canPutDown = animalPos.z > BottomOnRoadPoint;
+           canPutDown = animalPos.z > BottomOnRoadPoint &&CanPutDown(b2tSide,t2bSide );
         }
-        return canPutDown && animalPos.x >= roadPos.x - 1 && animalPos.x <= roadPos.x + 1;
+        else
+        {
+             canPutDown = CanPutDown(t2bSide, b2tSide);
+        }
+        return canPutDown && animalPos.x >= RoadLeft && animalPos.x <= RoadRight;
+    }
+
+    public bool CanPutDown(SideInfo side,SideInfo other)
+    {
+        if (side.AllAnimalMoveOut())
+        {
+            var first = other.GetFirst();
+            if (first)
+            {
+                return RoadLength - first.moveDistance > 0.0005f;
+            }
+            return true;
+        }
+        return false;
     }
 
     public void OnRoad(AnimalEntity animal, bool isToTop)
@@ -46,8 +74,11 @@ public class RoadEntity : MonoBehaviour
     }
     void Update()
     {
-        t2bSide.UpdateMove(Time.deltaTime, b2tSide.GetFirst(), RoadLength);
-        b2tSide.UpdateMove(Time.deltaTime, t2bSide.GetFirst(), RoadLength);
+        float deltaTime = Time.deltaTime;
+        t2bSide.UpdateMove(deltaTime, RoadLength,b2tSide.GetFirstMoveDis());
+        b2tSide.UpdateMove(deltaTime, RoadLength ,t2bSide.GetFirstMoveDis());
+        t2bSide.UpdateState( b2tSide.GetFirst(), RoadLength,b2tSide.SidePower);
+        b2tSide.UpdateState( t2bSide.GetFirst(), RoadLength,t2bSide.SidePower);
         t2bSide.UpdateSpeed(b2tSide.SidePower);
         b2tSide.UpdateSpeed(t2bSide.SidePower);
     }
@@ -69,12 +100,9 @@ public class SideInfo
     {
         SideAnimals.Add(entity);
     }
-
-    public void UpdateMove(float deltaTime, AnimalEntity diffSideFirstAnim, float roadLength)
+    //先更新移动再更新状态
+    public void UpdateState(AnimalEntity diffSideFirstAnim, float roadLength, float otherPower)
     {
-        float normalDeltaMove = deltaTime * ConstValue.DefaultSpeed;
-        float connectDeltaMove = deltaTime * ConstValue.DefaultSpeed * SpeedPercent;
-
         for (int i = 0; i < SideAnimals.Count; i++)
         {
             //如果第一个动物未连接，则判断第一个动物和反向动物第一个碰头的时候设置为链接状态 
@@ -91,32 +119,23 @@ public class SideInfo
                     SidePower += SideAnimals[0].Power;
                     SideAnimals[0].SetState(AnimalState.Connect);
                 }
-                else
-                {
-                    SideAnimals[0].Move(normalDeltaMove);
-                }
             }
-            else 
+            else
             {
                 //如果对面没动物了 要把所有设置为非链接状态并且方向力清零
                 if (diffSideFirstAnim == null)
                 {
-                    if(SideAnimals[i].CurState == AnimalState.Connect)
+                    if (SideAnimals[i].CurState == AnimalState.Connect)
                     {
                         SideAnimals[i].SetState(AnimalState.Run);
                     }
                     SidePower = 0;
                 }
                 //如果为链接状态则按照链接状态移动
-                if (SideAnimals[i].CurState == AnimalState.Connect)
-                {
-                    SideAnimals[i].Move(connectDeltaMove);
-                }
-                else if (SideAnimals[i].CurState == AnimalState.Run)
+                if (SideAnimals[i].CurState == AnimalState.Run)
                 {//非链接状态判断是否需要链接 和前面一个动物的距离差值是否为前一动物的身长 是则链接 否则则按照非链接状态移动
-                    SideAnimals[i].Move(normalDeltaMove);
                     bool canConnect = false;
-                    if (i > 0 && SideAnimals[0].CurState== AnimalState.Connect)
+                    if (i > 0 && SideAnimals[0].CurState == AnimalState.Connect)
                     {
                         canConnect = CanSameSideConnect(SideAnimals[i - 1], SideAnimals[i]);
                     }
@@ -128,12 +147,13 @@ public class SideInfo
                     }
                 }
             }
+            Debug.Log(SideAnimals[i].MoveDistance + "         " + SideAnimals[i].name + "          " + SideAnimals[i].CurState + "  " + SideAnimals[i].RunToTop);
         }
 
         if (SideAnimals.Count > 0)
         {
             //判断地0个动物是否跑完 跑完则把后面链接的动物的状态设为run,并且把方向力设置为0
-            if (SideAnimals[0].MoveDistance >= roadLength)
+            if (SideAnimals[0].MoveDistance >= roadLength+0.01f)
             {
                 var entity = SideAnimals[0];
                 if (entity.CurState == AnimalState.Connect)
@@ -171,7 +191,33 @@ public class SideInfo
                 SceneManager.Instance.AddToCollectList(entity);
             }
         }
+    }
 
+    public void UpdateMove(float deltaTime, float roadLength ,float otherMoveDis)
+    {
+        float normalDeltaMove =deltaTime * 2;
+        float connectDeltaMove =deltaTime * 2 * SpeedPercent;
+        for (int i = 0; i < SideAnimals.Count; i++)
+        {
+            //如果为链接状态则按照链接状态移动
+            if (SideAnimals[i].CurState == AnimalState.Connect)
+            {
+                SideAnimals[i].Move(connectDeltaMove);
+            }
+            else if (SideAnimals[i].CurState == AnimalState.Run)
+            {//非链接状态判断是否需要链接 和前面一个动物的距离差值是否为前一动物的身长 是则链接 否则则按照非链接状态移动
+                float useMove = normalDeltaMove;
+                if (i == 0&&otherMoveDis > 0.01f)
+                {
+                    useMove = Math.Min(normalDeltaMove, roadLength - otherMoveDis - SideAnimals[i].MoveDistance);
+                }
+                else if (i>0&&SideAnimals[i-1].CurState == AnimalState.Connect)
+                {
+                    useMove = Math.Min(normalDeltaMove, SideAnimals[i-1].MoveDistance - SideAnimals[i].MoveDistance);
+                }
+                SideAnimals[i].Move(useMove);
+            }
+        }
     }
 
     public void UpdateSpeed(float otherPower)
@@ -182,6 +228,8 @@ public class SideInfo
         {
             SpeedPercent = (SidePower - otherPower) / (SidePower + otherPower);
         }
+        if (otherPower>0)
+        Debug.LogWarning(otherPower + "        "  + SidePower +"           "+ SpeedPercent);
         //(SidePower -otherPower)/SidePower
     }
     //判断相对跑的动物是否能链接起来
@@ -194,12 +242,26 @@ public class SideInfo
     {
         return (anima0.MoveDistance - animal1.MoveDistance - anima0.BodyLength ) <= 0;
     }
-
+    public bool AllAnimalMoveOut()
+    {
+        if (SideAnimals.Count == 0)
+        {
+            return true;
+        }
+        return SideAnimals[SideAnimals.Count - 1].moveDistance > SideAnimals[SideAnimals.Count - 1].BodyLength;
+    }
     public AnimalEntity GetFirst()
     {
         if (SideAnimals.Count > 0)
             return SideAnimals[0];
 
         return null;
+    }
+
+    public float GetFirstMoveDis()
+    {
+        if (SideAnimals.Count > 0)
+            return SideAnimals[0].MoveDistance;
+        return 0;
     }
 }

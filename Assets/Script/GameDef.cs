@@ -1,8 +1,6 @@
 ﻿public static class ConstValue
 {
     public const float DefaultSpeed = 2;
-    public const float PerPowerSpeed = 0.5f;
-    public const float RoadLength = 50;
 }
 
 public enum AnimalState

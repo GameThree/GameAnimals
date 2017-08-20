@@ -935,6 +935,7 @@ MonoBehaviour:
   animation: {fileID: 111124894528436332}
   power: 5
   bodyLength: 0.95
+  AnimalDefaultSpeed: 2
   Index: 0
   RunToTop: 1
   curState: 1

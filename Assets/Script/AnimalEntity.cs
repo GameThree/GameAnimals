@@ -10,9 +10,10 @@ public class AnimalEntity : MonoBehaviour
     public float power;
     [Header("身体长度")]
     public float bodyLength;
+    [Header("动物的默认速度")]
+    public float AnimalDefaultSpeed;
     //所在Seat位置，或者所在路的位置
     public int Index;
-
     public bool RunToTop =true;
     public AnimalState curState = AnimalState.Wait;
     
@@ -50,7 +51,7 @@ public class AnimalEntity : MonoBehaviour
             {
                 Vector3 curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
                 Vector3 curPosition = camera.ScreenToWorldPoint(curScreenSpace);
-                Debug.Log(Input.mousePosition + "    " + curPosition);
+                //Debug.Log(Input.mousePosition + "    " + curPosition);
                 transform.position = curPosition+ offset;
                 yield return wait;
             }
@@ -104,6 +105,7 @@ public class AnimalEntity : MonoBehaviour
     }
     public void Move(float deltaMove)
     {
+        Debug.Log("----------------" + gameObject.name + "       " + deltaMove);
         transform.localPosition += new Vector3(0, 0, RunToTop ? deltaMove : -deltaMove);
         moveDistance += deltaMove;
     }

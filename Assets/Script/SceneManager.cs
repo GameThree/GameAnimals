@@ -15,6 +15,7 @@ public class SceneManager : MonoBehaviour
     public GameObject RecycleObj;
     private List<AnimalEntity> CollectAnimalList = new List<AnimalEntity>();
     public bool NeedCreate = true;
+    public bool EnimyNeedCreate = false;
     private bool InCreating = false;
     //public List<AnimalEntity> 
     public bool TrySetToRoad(AnimalEntity entity,bool isToTop)
@@ -108,9 +109,25 @@ public class SceneManager : MonoBehaviour
             Debug.LogError("生产动物失败" + AnimalsPrefab[index].name);
             return;
         }
-        int roadIndex = Random.Range(0, RoadList.Count);
-        entity.transform.position = RoadList[roadIndex].transform.position;
-        TrySetToRoad(entity, false);
+        int i = 0;
+        while (true)
+        {
+            i++;
+            int roadIndex = Random.Range(0, RoadList.Count);
+            float posX = (RoadList[roadIndex].RoadLeft + RoadList[roadIndex].RoadRight) / 2f;
+            entity.transform.position = new Vector3(posX, 0, 0);
+            if (TrySetToRoad(entity, false))
+            {
+                break;
+            }
+            if (i == 1000)
+            {
+                AddToCollectList(entity);
+                Debug.LogError("循环了1000次");
+                break;
+            }
+        }
+       
     }
     //每隔两秒生产一个
     private IEnumerator AnimalFactory(string name )
@@ -118,7 +135,7 @@ public class SceneManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         var entiy = CreateAnimalEntity(name);
         SetSelfAnimaToSeat(entiy);
-        CreateEnemyAnimal();
+       
         
     }
     private AnimalEntity CreateAnimalEntity(string name)
@@ -179,6 +196,11 @@ public class SceneManager : MonoBehaviour
         if (NeedCreate)
         {
             CeateAnimal();
+        }
+        if (EnimyNeedCreate)
+        {
+            EnimyNeedCreate = false;
+            CreateEnemyAnimal();
         }
 	}
 
