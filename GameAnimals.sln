@@ -1,7 +1,7 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameAnimals.CSharp", "GameAnimals.CSharp.csproj", "{F4C915AE-3C8F-68A1-3526-BE7E6E8796DC}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{0877A43A-3E56-582E-305C-CE6534F23802}") = "GameAnimals", "Assembly-CSharp.csproj", "{3190F6A2-8E51-4C9B-89A2-152B2197BA74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F4C915AE-3C8F-68A1-3526-BE7E6E8796DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4C915AE-3C8F-68A1-3526-BE7E6E8796DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4C915AE-3C8F-68A1-3526-BE7E6E8796DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4C915AE-3C8F-68A1-3526-BE7E6E8796DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3190F6A2-8E51-4C9B-89A2-152B2197BA74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3190F6A2-8E51-4C9B-89A2-152B2197BA74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3190F6A2-8E51-4C9B-89A2-152B2197BA74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3190F6A2-8E51-4C9B-89A2-152B2197BA74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal

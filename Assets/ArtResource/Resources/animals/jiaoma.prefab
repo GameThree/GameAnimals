@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 111042912455002592}
-  power: 20
+  power: 4.5
   bodyLength: 1.25
   AnimalDefaultSpeed: 2
   Index: 0

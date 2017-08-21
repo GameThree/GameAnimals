@@ -439,9 +439,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoadIndex: 2
+  RoadLeft: 0
+  RoadRight: 0
   TopMarkPos: 10
   BottomMarkPos: -5
   BottomOnRoadPoint: -3.5
+  t2bSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
+  b2tSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
 --- !u!114 &114088030611369412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -490,9 +500,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoadIndex: 4
+  RoadLeft: 0
+  RoadRight: 0
   TopMarkPos: 10
   BottomMarkPos: -5
   BottomOnRoadPoint: -3.5
+  t2bSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
+  b2tSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
 --- !u!114 &114352926449837418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -505,9 +525,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoadIndex: 0
+  RoadLeft: 0
+  RoadRight: 0
   TopMarkPos: 10
   BottomMarkPos: -5
   BottomOnRoadPoint: -3.5
+  t2bSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
+  b2tSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
 --- !u!114 &114534956324644132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -532,9 +562,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoadIndex: 3
+  RoadLeft: 0
+  RoadRight: 0
   TopMarkPos: 10
   BottomMarkPos: -5
   BottomOnRoadPoint: -3.5
+  t2bSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
+  b2tSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
 --- !u!114 &114635363167615090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,6 +619,7 @@ MonoBehaviour:
   - {fileID: 114534956324644132}
   RecycleObj: {fileID: 1445535522216514}
   NeedCreate: 1
+  EnimyNeedCreate: 0
 --- !u!114 &114894530912333702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -591,6 +632,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoadIndex: 1
+  RoadLeft: 0
+  RoadRight: 0
   TopMarkPos: 10
   BottomMarkPos: -5
   BottomOnRoadPoint: -3.5
+  t2bSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
+  b2tSide:
+    SideAnimals: []
+    SpeedPercent: 0
+    SidePower: 0
