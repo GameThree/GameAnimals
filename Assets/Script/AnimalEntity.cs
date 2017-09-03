@@ -8,6 +8,10 @@ public class AnimalEntity : MonoBehaviour
     public Animation animation;
     [Header("力量")]
     public float power;
+    [Header("力量小")]
+    public float minPower;
+    [Header("力量大")]
+    public float maxPower;
     [Header("身体长度")]
     public float bodyLength;
     [Header("动物的默认速度")]
@@ -112,7 +116,7 @@ public class AnimalEntity : MonoBehaviour
     {
        gameObject.SetActive(true);
        transform.parent = null;
-
+       power = Random.Range(minPower, maxPower);
        transform.rotation =isToTop? Quaternion.Euler(new Vector3(0f, 0f, 0f)): Quaternion.Euler(new Vector3(0f, 180f, 0f));
        transform.position = new Vector3(0, 0, zPos);
        RunToTop = isToTop;

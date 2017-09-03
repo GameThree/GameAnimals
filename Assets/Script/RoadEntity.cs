@@ -227,8 +227,8 @@ public class SideInfo
         {
             SpeedPercent = (SidePower - otherPower) / (SidePower + otherPower);
         }
-        if (otherPower>0)
-        Debug.LogWarning(otherPower + "        "  + SidePower +"           "+ SpeedPercent);
+        //if (otherPower>0)
+        //Debug.LogWarning(otherPower + "        "  + SidePower +"           "+ SpeedPercent);
         //(SidePower -otherPower)/SidePower
     }
     //判断相对跑的动物是否能链接起来
