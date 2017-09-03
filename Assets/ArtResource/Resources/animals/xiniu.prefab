@@ -898,6 +898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animation: {fileID: 111912802480458942}
   power: 12
+  minPower: 11
+  maxPower: 13
   bodyLength: 1.75
   AnimalDefaultSpeed: 2
   Index: 0
