@@ -149,4 +149,9 @@ public class AnimalEntity : MonoBehaviour
     {
         get { return curState; }
     }
+
+    public void Clear()
+    {
+        Index = -1;
+    }
 }

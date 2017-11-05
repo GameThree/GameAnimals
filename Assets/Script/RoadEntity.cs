@@ -161,7 +161,7 @@ public class SideInfo
                 }
                 entity.SetState(AnimalState.Finish);
                 SideAnimals.RemoveAt(0);
-                SceneManager.Instance.AddToCollectList(entity);
+                AnimalFactory.AddToCollectList(entity);
                 if (SideAnimals.Count > 0)
                 {
                     SideAnimals[0].SetState(AnimalState.Run);
@@ -187,7 +187,7 @@ public class SideInfo
                 }
                 entity.SetState(AnimalState.Finish);
                 SideAnimals.RemoveAt(lastIndex);
-                SceneManager.Instance.AddToCollectList(entity);
+                AnimalFactory.AddToCollectList(entity);
             }
         }
     }

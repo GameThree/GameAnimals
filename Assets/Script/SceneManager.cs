@@ -5,15 +5,15 @@ using System.Collections.Generic;
 public class SceneManager : MonoBehaviour 
 {
     public static SceneManager Instance;
-    [Header("动物资源列表")]
-    public List<GameObject> AnimalsPrefab=new List<GameObject>();
+
     [Header("可行走道路列表")]
     public List<RoadEntity> RoadList = new List<RoadEntity>();
     [Header("座位列表，产生动物放置点")]
     public List<SeatEntity> SeatList = new List<SeatEntity>();
-    [Header("动物回收的父节点")]
-    public GameObject RecycleObj;
-    private List<AnimalEntity> CollectAnimalList = new List<AnimalEntity>();
+    [Header("玩家动物生产工厂")]
+    public AnimalFactory PlayerFactory;
+    [Header("AI动物生产工厂")]
+    public AnimalFactory EnimyFactory;
     public bool NeedCreate = true;
     public bool EnimyNeedCreate = false;
     private bool InCreating = false;
@@ -38,13 +38,7 @@ public class SceneManager : MonoBehaviour
         entity.SetState(AnimalState.Wait);
         return false;
     }
-    public void AddToCollectList(AnimalEntity entity)
-    {
-        entity.gameObject.SetActive(false);
-        entity.Index = -1;
-        entity.transform.parent = RecycleObj.transform;
-        CollectAnimalList.Add(entity);
-    }
+
     public Vector2 GetStartPos(int index,bool isTop)
     {
         Vector2 start =new Vector2();
@@ -66,9 +60,7 @@ public class SceneManager : MonoBehaviour
             return;
         NeedCreate = false;
         InCreating = true;
-        int index = Random.Range(0, AnimalsPrefab.Count);
-        string name = AnimalsPrefab[index].name;
-        StartCoroutine(AnimalFactory("daxiang"));
+        StartCoroutine(AnimalCreator());
     }
 
     public void SetSelfAnimaToSeat(AnimalEntity entity )
@@ -102,11 +94,10 @@ public class SceneManager : MonoBehaviour
 
     public void CreateEnemyAnimal()
     {
-        int index = Random.Range(0, AnimalsPrefab.Count);
-        var entity = CreateAnimalEntity(AnimalsPrefab[index].name);
+        var entity = EnimyFactory.CreateAnimals();
         if (entity == null)
         {
-            Debug.LogError("生产动物失败" + AnimalsPrefab[index].name);
+            Debug.LogError("生产动物失败");
             return;
         }
         int i = 0;
@@ -122,7 +113,7 @@ public class SceneManager : MonoBehaviour
             }
             if (i == 1000)
             {
-                AddToCollectList(entity);
+                AnimalFactory.AddToCollectList(entity);
                 Debug.LogError("循环了1000次");
                 break;
             }
@@ -130,55 +121,13 @@ public class SceneManager : MonoBehaviour
        
     }
     //每隔两秒生产一个
-    private IEnumerator AnimalFactory(string name )
+    private IEnumerator AnimalCreator()
     {
         yield return new WaitForSeconds(2);
-        var entiy = CreateAnimalEntity(name);
+        var entiy = PlayerFactory.CreateAnimals();
         SetSelfAnimaToSeat(entiy);
         CreateEnemyAnimal();
         
-    }
-    private AnimalEntity CreateAnimalEntity(string name)
-    {
-        AnimalEntity entity=null;
-        for(int i=0;i<CollectAnimalList.Count;i++)
-        {
-            if (CollectAnimalList[i].name.Equals(name))
-            {
-                entity = CollectAnimalList[i];
-                CollectAnimalList.RemoveAt(i);
-                break;
-            }
-        }
-        if (entity == null)
-        {
-            for (int i = 0; i < AnimalsPrefab.Count; i++)
-            {
-                if (AnimalsPrefab[i].name.Equals(name))
-                {
-                    GameObject animal = Object.Instantiate(AnimalsPrefab[i]) as GameObject;
-                    animal.name = AnimalsPrefab[i].name;
-                    entity = animal.GetComponent<AnimalEntity>();
-                    break;
-                }
-            }
-        }
-        if (entity == null)
-        {
-           GameObject animalPrefab = Resources.Load<GameObject>("animals/" + name);
-           if (animalPrefab != null)
-           {
-               AnimalsPrefab.Add(animalPrefab);
-               GameObject animal = Object.Instantiate(animalPrefab) as GameObject;
-               animal.name = animalPrefab.name;
-               entity = animal.GetComponent<AnimalEntity>();
-           }
-           else
-           {
-               Debug.LogError("找不到 ：" + name);
-           }
-        }
-        return entity;
     }
 	// Use this for initialization
 	void Start () 
