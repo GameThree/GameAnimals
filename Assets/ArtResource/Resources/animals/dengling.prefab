@@ -171,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4665910245288110}
   - component: {fileID: 114654818814497288}
+  - component: {fileID: 65473063986187982}
   m_Layer: 0
   m_Name: dengling
   m_TagString: Untagged
@@ -680,6 +681,18 @@ Transform:
   m_Father: {fileID: 4841635901589244}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -94.66427}
+--- !u!65 &65473063986187982
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566217663550794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.24, z: 1.63}
+  m_Center: {x: 0, y: 0.61, z: -0.42}
 --- !u!111 &111539999371680680
 Animation:
   m_ObjectHideFlags: 1
@@ -713,8 +726,9 @@ MonoBehaviour:
   maxPower: 2
   bodyLength: 1.2
   AnimalDefaultSpeed: 2
+  FinshPoint: 0
   Index: 0
-  RunToTop: 1
+  AttackDir: 0
   curState: 1
   moveDistance: 0
 --- !u!137 &137487925633527564

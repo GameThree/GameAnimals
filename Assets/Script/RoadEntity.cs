@@ -24,7 +24,7 @@ public class RoadEntity : MonoBehaviour
     {
         RoadLength = TopMarkPos - BottomMarkPos;
     }
-    public bool TryOnRoad(Vector3 animalPos, bool isToTop)
+    public bool TryOnRoad(Vector3 animalPos, AttackDirection dir)
     {
         Vector3 roadPos =transform.position;
        
@@ -34,7 +34,7 @@ public class RoadEntity : MonoBehaviour
          * 如果是从下往上走也是相同逻辑
          * **/
         bool canPutDown = false;
-        if (isToTop)
+        if (dir == AttackDirection.Top)
         {
            canPutDown = animalPos.z > BottomOnRoadPoint &&CanPutDown(b2tSide,t2bSide );
         }
@@ -59,28 +59,87 @@ public class RoadEntity : MonoBehaviour
         return false;
     }
 
-    public void OnRoad(AnimalEntity animal, bool isToTop)
+    public void OnRoad(AnimalEntity animal)
     {
         animal.Index = RoadIndex;
-        float zPos =TopMarkPos;
-        if (!isToTop)
+        float zPos = TopMarkPos;
+        float xPos = transform.localPosition.x;
+        if (animal.AttackDir == AttackDirection.Bottom)
             t2bSide.AddAnimal(animal);
         else
         { 
             b2tSide.AddAnimal(animal);
-            zPos =BottomMarkPos;
+            zPos = BottomMarkPos;
         }
-        animal.OnToRoad(isToTop, zPos);
+        animal.transform.parent = null;
+        animal.OnToRoad(xPos,zPos);
     }
-    void Update()
+    public void UpdateState(float deltaTime)
     {
-        float deltaTime = Time.deltaTime;
         t2bSide.UpdateMove(deltaTime, RoadLength,b2tSide.GetFirstMoveDis());
         b2tSide.UpdateMove(deltaTime, RoadLength ,t2bSide.GetFirstMoveDis());
         t2bSide.UpdateState( b2tSide.GetFirst(), RoadLength,b2tSide.SidePower);
         b2tSide.UpdateState( t2bSide.GetFirst(), RoadLength,t2bSide.SidePower);
         t2bSide.UpdateSpeed(b2tSide.SidePower);
         b2tSide.UpdateSpeed(t2bSide.SidePower);
+    }
+
+    public float GetTotalPower(AttackDirection dir)
+    {
+        float maxPower = 0f;
+        if (dir == AttackDirection.Top)
+        {
+            for (int i = 1; i < b2tSide.SideAnimals.Count; i++)
+            {
+                maxPower += b2tSide.SideAnimals[i].Power;
+            }
+        }
+        else 
+        {
+            for (int i = 1; i < t2bSide.SideAnimals.Count; i++)
+            {
+                maxPower += t2bSide.SideAnimals[i].Power;
+            }
+        }
+        return maxPower;
+    }
+
+    public float GetMaxDis(AttackDirection dir)
+    {
+        float maxDis = 0;
+        if (dir == AttackDirection.Top)
+        {
+            maxDis = b2tSide.GetFirstMoveDis();
+        }
+        else
+        {
+            maxDis = t2bSide.GetFirstMoveDis();
+        }
+        return maxDis;
+    }
+
+    public int GetPoint(AttackDirection dir)
+    {
+        if (dir == AttackDirection.Top)
+        {
+            return b2tSide.Points;
+        }
+        else
+        {
+            return t2bSide.Points;
+        }
+    }
+
+    public float GetLastConnectMoveDis(AttackDirection dir)
+    {
+        if (dir == AttackDirection.Top)
+        {
+            return b2tSide.GetLastConnectMoveDis();
+        }
+        else
+        {
+            return t2bSide.GetLastConnectMoveDis();
+        }
     }
 }
 [Serializable]
@@ -95,6 +154,8 @@ public class SideInfo
     /// 一个方向的总体力量
     /// </summary>
     public float SidePower = 0;
+
+    public int Points = 0;
 
     public void AddAnimal(AnimalEntity entity)
     {
@@ -160,6 +221,7 @@ public class SideInfo
                     SidePower -= entity.Power;
                 }
                 entity.SetState(AnimalState.Finish);
+                Points += entity.FinshPoint;
                 SideAnimals.RemoveAt(0);
                 AnimalFactory.AddToCollectList(entity);
                 if (SideAnimals.Count > 0)
@@ -185,7 +247,7 @@ public class SideInfo
                 {
                     SidePower -= entity.Power;
                 }
-                entity.SetState(AnimalState.Finish);
+                entity.SetState(AnimalState.Dead);
                 SideAnimals.RemoveAt(lastIndex);
                 AnimalFactory.AddToCollectList(entity);
             }
@@ -262,5 +324,23 @@ public class SideInfo
         if (SideAnimals.Count > 0)
             return SideAnimals[0].MoveDistance;
         return 0;
+    }
+
+    public float GetLastConnectMoveDis()
+    {
+        float moveDis = 0f;
+        for (int i = 0; i < SideAnimals.Count; i++)
+        {
+            if (SideAnimals[i].CurState == AnimalState.Connect)
+            {
+                moveDis = SideAnimals[i].MoveDistance;
+            }
+            else 
+            {
+                break;
+            }
+        }
+
+        return moveDis;
     }
 }

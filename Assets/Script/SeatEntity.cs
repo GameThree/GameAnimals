@@ -20,6 +20,7 @@ public class SeatEntity : MonoBehaviour
                 value.transform.parent = transform;
                 value.transform.localPosition = Vector3.zero;
                 value.transform.localScale = Vector3.one;
+                value.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             }
         }
     }

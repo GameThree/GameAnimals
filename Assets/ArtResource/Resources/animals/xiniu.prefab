@@ -50,6 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4804040286447630}
   - component: {fileID: 114363040710839040}
+  - component: {fileID: 65968204319607036}
   m_Layer: 0
   m_Name: xiniu
   m_TagString: Untagged
@@ -869,6 +870,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970148381795842}
   m_Mesh: {fileID: 4300000, guid: 63e90a00c92744d4492479874d246742, type: 3}
+--- !u!65 &65968204319607036
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072288996213460}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.24, z: 1.63}
+  m_Center: {x: 0, y: 0.61, z: -0.42}
 --- !u!111 &111912802480458942
 Animation:
   m_ObjectHideFlags: 1
@@ -902,8 +915,9 @@ MonoBehaviour:
   maxPower: 13
   bodyLength: 1.75
   AnimalDefaultSpeed: 2
+  FinshPoint: 0
   Index: 0
-  RunToTop: 1
+  AttackDir: 0
   curState: 1
   moveDistance: 0
 --- !u!137 &137141082873677106

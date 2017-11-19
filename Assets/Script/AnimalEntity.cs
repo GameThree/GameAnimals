@@ -16,9 +16,11 @@ public class AnimalEntity : MonoBehaviour
     public float bodyLength;
     [Header("动物的默认速度")]
     public float AnimalDefaultSpeed;
+    [Header("完成增加的分数")]
+    public int FinshPoint = 0;
     //所在Seat位置，或者所在路的位置
     public int Index;
-    public bool RunToTop =true;
+    public AttackDirection AttackDir = AttackDirection.Top;
     public AnimalState curState = AnimalState.Wait;
     
     public float moveDistance = 0;
@@ -68,15 +70,13 @@ public class AnimalEntity : MonoBehaviour
     {
         if (curState == AnimalState.Select)
         {
-            if (SceneManager.Instance&&!SceneManager.Instance.TrySetToRoad(this, true))
+            if (SceneManager.Instance && !SceneManager.Instance.TrySetToRoad(this))
                 transform.localPosition = Vector3.zero;
         }
        
     }
     public void StartRun()
     {
-        Vector2 start = SceneManager.Instance.GetStartPos(Index, !RunToTop);
-        transform.position = new Vector3(start.x, 0, start.y);
         SetState(AnimalState.Run);
     }
     public void SetState(AnimalState state)
@@ -84,7 +84,7 @@ public class AnimalEntity : MonoBehaviour
         if (curState == state)
             return;
         curState = state;
-        if (curState == AnimalState.Finish)
+        if (curState == AnimalState.Finish || curState == AnimalState.Dead)
         {
             moveDistance = 0;
             Index = -1;
@@ -109,17 +109,17 @@ public class AnimalEntity : MonoBehaviour
     }
     public void Move(float deltaMove)
     {
-        transform.localPosition += new Vector3(0, 0, RunToTop ? deltaMove : -deltaMove);
+        transform.localPosition += new Vector3(0, 0, AttackDir == AttackDirection.Top ? deltaMove : -deltaMove);
         moveDistance += deltaMove;
     }
-    public void OnToRoad(bool isToTop,float zPos) 
+    public void OnToRoad(float xPos,float zPos) 
     {
        gameObject.SetActive(true);
        transform.parent = null;
        power = Random.Range(minPower, maxPower);
-       transform.rotation =isToTop? Quaternion.Euler(new Vector3(0f, 0f, 0f)): Quaternion.Euler(new Vector3(0f, 180f, 0f));
-       transform.position = new Vector3(0, 0, zPos);
-       RunToTop = isToTop;
+       transform.rotation =AttackDir == AttackDirection.Top? Quaternion.Euler(new Vector3(0f, 0f, 0f)): Quaternion.Euler(new Vector3(0f, 180f, 0f));
+       transform.localPosition = new Vector3(xPos, 0, zPos);
+
        StartRun();
     }
     public void ToSeatDefault()
@@ -153,5 +153,8 @@ public class AnimalEntity : MonoBehaviour
     public void Clear()
     {
         Index = -1;
+        AttackDir = AttackDirection.Top;
+        curState = AnimalState.None;
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
     }
 }

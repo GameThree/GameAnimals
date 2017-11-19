@@ -525,6 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4161260149360324}
   - component: {fileID: 114650236669459492}
+  - component: {fileID: 65079395781214066}
   m_Layer: 0
   m_Name: shuiniu
   m_TagString: Untagged
@@ -1759,6 +1760,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976577416612758}
   m_Mesh: {fileID: 4300014, guid: 9e5ff099380a05e46846314ba089d4c4, type: 3}
+--- !u!65 &65079395781214066
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730400159541326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.24, z: 1.63}
+  m_Center: {x: 0, y: 0.61, z: -0.42}
 --- !u!111 &111622121675968040
 Animation:
   m_ObjectHideFlags: 1
@@ -1792,8 +1805,9 @@ MonoBehaviour:
   maxPower: 8
   bodyLength: 1.25
   AnimalDefaultSpeed: 2
+  FinshPoint: 0
   Index: 0
-  RunToTop: 1
+  AttackDir: 0
   curState: 1
   moveDistance: 0
 --- !u!137 &137121794712646934

@@ -137,6 +137,108 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 043c9748a905ea249bf5143d38ae9157, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &183085160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1445535522216514, guid: 73d7724f2896c7947b056a9452c09aaf,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 183085161}
+  - component: {fileID: 183085163}
+  - component: {fileID: 183085162}
+  - component: {fileID: 183085164}
+  m_Layer: 0
+  m_Name: Computer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &183085161
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4981190646179672, guid: 73d7724f2896c7947b056a9452c09aaf,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183085160}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1956268785}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &183085162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183085160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01ad10b8605bf841b1f3c718493a43a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimalMaxCount: 5
+  Factory: {fileID: 183085163}
+  UseAI: {fileID: 183085164}
+  SeatList: []
+  BattleDatas: []
+  WaitAnimals: []
+  AttackDir: 1
+--- !u!114 &183085163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183085160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d432dd8430cc7f0439fe221e2bb1378e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animals:
+  - Animal: {fileID: 1268734859636326, guid: 86350422356bded49ba88b8977d6ae64, type: 2}
+    Weight: 100
+  - Animal: {fileID: 1566217663550794, guid: 73e5d2f22e98cf846a9347d7c1308c43, type: 2}
+    Weight: 200
+  - Animal: {fileID: 1600156578664306, guid: d34b5e15ff4780947a27348cb3efb0f0, type: 2}
+    Weight: 300
+  - Animal: {fileID: 1730400159541326, guid: ac467fe095b37c24f8beda9d7ce51df0, type: 2}
+    Weight: 400
+  - Animal: {fileID: 1072288996213460, guid: aa73af6775e52bc42a595a707f2bbb94, type: 2}
+    Weight: 500
+  - Animal: {fileID: 1468545928781884, guid: 35fb02a52167a344ba43338f7fa51e45, type: 2}
+    Weight: 600
+--- !u!114 &183085164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183085160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6987026d3be2043ad61218d4f9d56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimalChecker: {fileID: 183085162}
+  CreateAnimalDelta: 2
+  AutoFight: 1
+  DefendDis: 1
+  ImportantDefendDis: 2
+  GiveUpDis: 10
+  GiveUpConnectDis: 2
+  DecisionTime: 1
+  FirstDecision: 2
+  StartAI: 0
+--- !u!114 &325284224 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114323309586256794, guid: 73d7724f2896c7947b056a9452c09aaf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899309596}
+  m_Script: {fileID: 11500000, guid: a7ae469a8908dee41b8124553e7bd52e, type: 3}
 --- !u!1001 &556931638
 Prefab:
   m_ObjectHideFlags: 0
@@ -183,6 +285,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e79dbb3d26ad0ae41bfdc9718baa2596, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &889752785 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114088030611369412, guid: 73d7724f2896c7947b056a9452c09aaf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899309596}
+  m_Script: {fileID: 11500000, guid: a7ae469a8908dee41b8124553e7bd52e, type: 3}
+--- !u!114 &924528253 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114285788743193532, guid: 73d7724f2896c7947b056a9452c09aaf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899309596}
+  m_Script: {fileID: 11500000, guid: a7ae469a8908dee41b8124553e7bd52e, type: 3}
+--- !u!114 &1530797309 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114635363167615090, guid: 73d7724f2896c7947b056a9452c09aaf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899309596}
+  m_Script: {fileID: 11500000, guid: a7ae469a8908dee41b8124553e7bd52e, type: 3}
 --- !u!1001 &1557878613
 Prefab:
   m_ObjectHideFlags: 0
@@ -225,6 +345,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26ae61993e2acc349a0619c10fce38ce, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1664886193 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114534956324644132, guid: 73d7724f2896c7947b056a9452c09aaf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899309596}
+  m_Script: {fileID: 11500000, guid: a7ae469a8908dee41b8124553e7bd52e, type: 3}
 --- !u!1001 &1899309596
 Prefab:
   m_ObjectHideFlags: 0
@@ -320,8 +446,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1445535522216514, guid: 73d7724f2896c7947b056a9452c09aaf, type: 2}
       propertyPath: m_Name
-      value: Factory
+      value: Human
       objectReference: {fileID: 0}
+    - target: {fileID: 114762654540852808, guid: 73d7724f2896c7947b056a9452c09aaf,
+        type: 2}
+      propertyPath: AnimalFactory
+      value: 
+      objectReference: {fileID: 1899309598}
+    - target: {fileID: 114762654540852808, guid: 73d7724f2896c7947b056a9452c09aaf,
+        type: 2}
+      propertyPath: HumanPlayer
+      value: 
+      objectReference: {fileID: 1899309599}
+    - target: {fileID: 114762654540852808, guid: 73d7724f2896c7947b056a9452c09aaf,
+        type: 2}
+      propertyPath: ComputerPlayer
+      value: 
+      objectReference: {fileID: 183085162}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73d7724f2896c7947b056a9452c09aaf, type: 2}
   m_IsPrefabParent: 0
@@ -343,17 +484,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animals:
   - Animal: {fileID: 1268734859636326, guid: 86350422356bded49ba88b8977d6ae64, type: 2}
-    Weight: 10
+    Weight: 100
   - Animal: {fileID: 1566217663550794, guid: 73e5d2f22e98cf846a9347d7c1308c43, type: 2}
-    Weight: 20
+    Weight: 200
   - Animal: {fileID: 1600156578664306, guid: d34b5e15ff4780947a27348cb3efb0f0, type: 2}
-    Weight: 30
+    Weight: 300
   - Animal: {fileID: 1730400159541326, guid: ac467fe095b37c24f8beda9d7ce51df0, type: 2}
-    Weight: 40
+    Weight: 400
   - Animal: {fileID: 1072288996213460, guid: aa73af6775e52bc42a595a707f2bbb94, type: 2}
-    Weight: 50
+    Weight: 500
   - Animal: {fileID: 1468545928781884, guid: 35fb02a52167a344ba43338f7fa51e45, type: 2}
-    Weight: 60
+    Weight: 600
+--- !u!114 &1899309599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899309597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01ad10b8605bf841b1f3c718493a43a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimalMaxCount: 5
+  Factory: {fileID: 1899309598}
+  UseAI: {fileID: 1899309600}
+  SeatList:
+  - {fileID: 924528253}
+  - {fileID: 889752785}
+  - {fileID: 325284224}
+  - {fileID: 1530797309}
+  - {fileID: 1664886193}
+  BattleDatas: []
+  WaitAnimals: []
+  AttackDir: 0
+--- !u!114 &1899309600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899309597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6987026d3be2043ad61218d4f9d56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimalChecker: {fileID: 1899309599}
+  CreateAnimalDelta: 2
+  AutoFight: 0
+  DefendDis: 1
+  ImportantDefendDis: 2
+  GiveUpDis: 10
+  GiveUpConnectDis: 2
+  DecisionTime: 1
+  FirstDecision: 2
+  StartAI: 0
 --- !u!1001 &1919754130
 Prefab:
   m_ObjectHideFlags: 0
@@ -416,3 +601,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46bae77d4fad51d479a8603eda149288, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1956268785 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4248852759623482, guid: 73d7724f2896c7947b056a9452c09aaf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899309596}
