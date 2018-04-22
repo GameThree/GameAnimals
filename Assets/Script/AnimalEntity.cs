@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AnimalEntity : MonoBehaviour
 {
-    private static Camera m_sceneCamera;
     [Header("需要给每个动物加碰撞")]
     [Header("挂上动物的碰撞组件")]
     public Animation animation;
@@ -25,7 +24,6 @@ public class AnimalEntity : MonoBehaviour
     public AnimalState curState = AnimalState.Wait;
     
     public float moveDistance = 0;
-    
 
     void Start()
     {
@@ -38,35 +36,54 @@ public class AnimalEntity : MonoBehaviour
             }
         }
     }
-
+    void OnMouseDown()
+    {
+        if (curState == AnimalState.Wait|| curState == AnimalState.None)
+        {
+            SetState(AnimalState.Select);
+            //StartCoroutine(OnDrag());
+        }
+    }
     private void OnMouseDrag()
     {
 
         if (curState == AnimalState.Select)
         {
-            //var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //RaycastHit hitInfo;
-            //Physics.Raycast(ray, out hitInfo, 1000, LayerMask.GetMask("Scene"));
-            //transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y, 0) ;
-            Vector3 mousPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y,  - m_sceneCamera.transform.position.z);
-            Vector3 objPosition = m_sceneCamera.ScreenToWorldPoint(mousPos);
-            transform.position = objPosition;
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+            Physics.Raycast(ray, out hitInfo, 1000, LayerMask.GetMask("Scene"));
+            if(hitInfo.transform != null)
+            {
+                transform.position = new Vector3(hitInfo.point.x, 0, hitInfo.point.z);
+                Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
+            }
+            else
+            {
+                curState = AnimalState.Wait;
+                transform.localPosition = Vector3.zero;
+            }
+  
         }
     }
-
-    void OnMouseDown()
+    IEnumerator OnDrag()
     {
-        if (m_sceneCamera == null)
+        if (curState == AnimalState.Select)
         {
-            m_sceneCamera = GameObject.Find("SceneCamera").GetComponent<Camera>();
+            Camera camera = GameObject.Find("SceneCamera").GetComponent<Camera>();
+            var offset = transform.position - camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+            var wait =new WaitForFixedUpdate();
+            while (AnimalState.Select == curState)
+            {
+                Vector3 curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
+                Vector3 curPosition = camera.ScreenToWorldPoint(curScreenSpace);
+                //Debug.Log(Input.mousePosition + "    " + curPosition);
+                transform.position = curPosition+ offset;
+                yield return wait;
+            }
+            
         }
-        if (curState == AnimalState.Wait)
-        {
-            SetState(AnimalState.Select);
-        }
+        
     }
-
-
 
     void OnMouseUp()
     {
@@ -101,6 +118,7 @@ public class AnimalEntity : MonoBehaviour
         }
         else if (curState == AnimalState.Select)
         {
+            transform.position =transform.position + new Vector3(0, 0.5f, 0);
             animation.Play(gameObject.name+"_"+curState.ToString());
         }
         else
@@ -110,7 +128,7 @@ public class AnimalEntity : MonoBehaviour
     }
     public void Move(float deltaMove)
     {
-        transform.localPosition += new Vector3(0,  AttackDir == AttackDirection.Top ? deltaMove : -deltaMove,0);
+        transform.localPosition += new Vector3(0, 0, AttackDir == AttackDirection.Top ? deltaMove : -deltaMove);
         moveDistance += deltaMove;
     }
     public void OnToRoad(float xPos,float zPos) 
@@ -118,8 +136,8 @@ public class AnimalEntity : MonoBehaviour
        gameObject.SetActive(true);
        transform.parent = null;
        power = Random.Range(minPower, maxPower);
-       transform.rotation =AttackDir == AttackDirection.Top? Quaternion.Euler(new Vector3(0f, 0f, 0f)): Quaternion.Euler(new Vector3(0f, 0f, 180f));
-       transform.localPosition = new Vector3(xPos, zPos, 0);
+       transform.rotation =AttackDir == AttackDirection.Top? Quaternion.Euler(new Vector3(0f, 0f, 0f)): Quaternion.Euler(new Vector3(0f, 180f, 0f));
+       transform.localPosition = new Vector3(xPos, 0, zPos);
 
        StartRun();
     }
