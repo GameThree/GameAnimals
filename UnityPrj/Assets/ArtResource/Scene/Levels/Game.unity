@@ -247,7 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimalChecker: {fileID: 183085162}
   CreateAnimalDelta: 2
-  AutoFight: 0
+  AutoFight: 1
   DefendDis: 1
   ImportantDefendDis: 2
   GiveUpDis: 10
